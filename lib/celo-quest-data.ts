@@ -4,12 +4,12 @@ export const celoScrollContent: Record<
   { title: string; content: string[]; analogy: { title: string; text: string } }
 > = {
   "1": {
-    title: "Celo Network Fundamentals",
+    title: "Celo Network Foundations",
     content: [
-      "Celo Network is a high-performance Ethereum Layer 2 solution that combines the security of Ethereum with the scalability of Optimistic Rollups. It's built to be EVM-compatible, meaning it can run any smart contract that works on Ethereum.",
-      "At its core, Celo aims to solve the blockchain trilemma of achieving scalability, security, and decentralization simultaneously. It does this through its innovative modular architecture that separates execution, settlement, and data availability.",
-      "Celo's design allows for significantly lower transaction fees compared to Ethereum mainnet while maintaining strong security guarantees. This makes it an attractive platform for developers and users looking for an efficient and cost-effective blockchain experience.",
-      "The network is governed by Celo DAO, ensuring that all stakeholders have a say in the protocol's future development and direction. This decentralized governance model is a key aspect of Celo's philosophy.",
+      "Celo is a carbon-negative, mobile-first blockchain that makes financial tools accessible to anyone with a mobile phone. It is transitioning to an Ethereum Layer 2 to align with the Ethereum ecosystem while maintaining its unique focus on real-world utility.",
+      "At its core, Celo is built for mobile accessibility. It uses phone numbers as public keys, making it as easy to send crypto as it is to send a text message.",
+      "The Celo ecosystem is home to a suite of algorithmic stablecoins like cUSD, cEUR, and cREAL, which are backed by the Celo Reserve and provide price stability for everyday transactions.",
+      "By transitioning to an Ethereum L2, Celo will leverage Ethereum's security while providing the ultra-low fees and fast finality required for global financial inclusion.",
     ],
     analogy: {
       title: "Think of it like...",
@@ -30,12 +30,12 @@ export const celoScrollContent: Record<
     },
   },
   "3": {
-    title: "The $MNT Token and Governance",
+    title: "The $CELO Token and Mento Protocol",
     content: [
-      "$MNT is the native utility and governance token of the Celo Network. It serves multiple purposes including paying for transaction fees, participating in governance, and staking to secure the network.",
-      "Token holders can participate in Celo's decentralized governance by creating and voting on proposals that shape the network's future. This includes protocol upgrades, parameter adjustments, and treasury management.",
-      "The token economics of $MNT are designed to align incentives between all network participants. A portion of transaction fees is burned, creating deflationary pressure that can potentially increase the token's value over time.",
-      "Staking $MNT not only helps secure the network but also allows participants to earn rewards. The staking mechanism is designed to be accessible to both large and small token holders.",
+      "$CELO is the native asset of the Celo blockchain, used for transaction fees, governance, and securing the network through staking.",
+      "The Mento Protocol is a key component of Celo, responsible for the stability of Celo stablecoins. It allows users to trade $CELO for cUSD and other stable assets based on real-time market demand.",
+      "Governance on Celo is truly decentralized. CELO holders can vote on protocol changes, additions to the Celo Reserve, and community fund allocations.",
+      "As Celo moves to Ethereum L2, the CELO token will continue to play a central role in the network's decentralized sequencer and governance structure.",
     ],
     analogy: {
       title: "Think of it like...",
@@ -156,105 +156,91 @@ export const celoQuestRooms: Record<
 > = {
   "1": {
     id: "1",
-    title: "The Ancient Chamber",
-    description: "Discover the fundamentals of Celo Network and its role in scaling Ethereum.",
-    letter: "M",
+    title: "The Prosperity Chamber",
+    description: "Discover the foundations of Celo's mobile-first mission and its role in global financial inclusion.",
+    letter: "C",
     nextUrl: "/celo-quests/2",
-    word: "MANTLE",
+    word: "CELO",
     letters: [
       {
-        id: "m",
-        letter: "M",
+        id: "c",
+        letter: "C",
         roomId: 0,
         position: { x: "20%", y: "30%" },
-        hint: "The first letter of the network's name"
-      },
-      {
-        id: "a",
-        letter: "A",
-        roomId: 1,
-        position: { x: "40%", y: "50%" },
-        hint: "The first vowel in the alphabet"
-      },
-      {
-        id: "n",
-        letter: "N",
-        roomId: 2,
-        position: { x: "60%", y: "40%" },
-        hint: "Comes before O in the alphabet"
-      },
-      {
-        id: "t",
-        letter: "T",
-        roomId: 3,
-        position: { x: "80%", y: "40%" },
-        hint: "Often silent at the end of words"
-      },
-      {
-        id: "l",
-        letter: "L",
-        roomId: 0,
-        position: { x: "70%", y: "70%" },
-        hint: "The Roman numeral for 50"
+        hint: "The first letter of Celo"
       },
       {
         id: "e",
         letter: "E",
         roomId: 1,
-        position: { x: "50%", y: "80%" },
-        hint: "The most commonly used letter in English"
+        position: { x: "40%", y: "50%" },
+        hint: "Second letter of Celo"
+      },
+      {
+        id: "l",
+        letter: "L",
+        roomId: 2,
+        position: { x: "60%", y: "40%" },
+        hint: "Third letter of Celo"
+      },
+      {
+        id: "o",
+        letter: "O",
+        roomId: 3,
+        position: { x: "80%", y: "40%" },
+        hint: "Final letter of Celo"
       }
     ]
   },
   "2": {
     id: "2",
-    title: "The Optimistic Vault",
-    description: "Explore how Celo uses Optimistic Rollups to scale Ethereum while maintaining security.",
-    letter: "A",
+    title: "The Stable Vault",
+    description: "Explore the Mento Protocol and the suite of Celo stablecoins (cUSD, cEUR, cREAL).",
+    letter: "S",
     nextUrl: "/celo-quests/3",
-    word: "ROLLUP",
+    word: "STABLE",
     letters: [
       {
-        id: "r",
-        letter: "R",
+        id: "s",
+        letter: "S",
         roomId: 0,
         position: { x: "15%", y: "30%" },
-        hint: "The 18th letter of the alphabet"
+        hint: "The first letter of Stable"
       },
       {
-        id: "o",
-        letter: "O",
+        id: "t",
+        letter: "T",
         roomId: 1,
         position: { x: "30%", y: "50%" },
-        hint: "A perfect circle"
+        hint: "Second letter"
       },
       {
-        id: "l1",
-        letter: "L",
+        id: "a",
+        letter: "A",
         roomId: 2,
         position: { x: "45%", y: "30%" },
-        hint: "The Roman numeral for 50"
+        hint: "Third letter"
       },
       {
-        id: "l2",
-        letter: "L",
+        id: "b",
+        letter: "B",
         roomId: 3,
         position: { x: "60%", y: "50%" },
-        hint: "Appears twice in this word"
+        hint: "Fourth letter"
       },
       {
-        id: "u",
-        letter: "U",
+        id: "l",
+        letter: "L",
         roomId: 0,
         position: { x: "75%", y: "30%" },
-        hint: "The only vowel in this word"
+        hint: "Fifth letter"
       },
       {
-        id: "p",
-        letter: "P",
+        id: "e",
+        letter: "E",
         roomId: 1,
         position: { x: "90%", y: "50%" },
-        hint: "The 16th letter of the alphabet"
+        hint: "Final letter"
       }
     ]
   }
@@ -266,29 +252,29 @@ export const celoQuizData: Record<
 > = {
   "1": [
     {
-      question: "What is Celo Network primarily designed to improve?",
+      question: "What is the primary focus of the Celo Network?",
       options: [
-        "Ethereum's smart contract capabilities",
-        "Bitcoin's transaction speed",
-        "Ethereum's scalability and transaction costs",
-        "NFT storage capacity",
+        "Replacing Ethereum entirely",
+        "High-frequency stock trading",
+        "Mobile-first financial inclusion for everyone",
+        "Storage for large video files",
       ],
       correctAnswer: 2,
     },
     {
-      question: "What technology does Celo use to achieve scalability?",
+      question: "Which of these is a unique feature of the Celo blockchain?",
       options: [
-        "Proof of Work",
-        "Optimistic Rollups",
-        "Sharding",
-        "Proof of Stake",
+        "It requires a supercomputer to run a node",
+        "It uses phone numbers as public keys for easy mapping",
+        "It only works on desktop browsers",
+        "It has no governance mechanism",
       ],
       correctAnswer: 1,
     },
     {
-      question: "What is the native token of Celo Network?",
-      options: ["MNT", "MANT", "MANTLE", "MNET"],
-      correctAnswer: 0,
+      question: "What is the native utility and governance token of Celo?",
+      options: ["cUSD", "CELO", "GOLD", "cREAL"],
+      correctAnswer: 1,
     },
     {
       question: "Celo is best described as which type of network?",
@@ -311,12 +297,12 @@ export const celoQuizData: Record<
       correctAnswer: 1,
     },
     {
-      question: "Which feature helps Celo keep transaction fees lower than Ethereum mainnet?",
+      question: "What are cUSD, cEUR, and cREAL on Celo?",
       options: [
-        "Batching transactions before posting to Ethereum",
-        "Storing private keys on-chain",
-        "Removing all validators",
-        "Running only on mobile devices",
+        "Algorithmic stablecoins managed by the Mento Protocol",
+        "Different names for the CELO token",
+        "Mining rewards for validators",
+        "External tokens bridged from Bitcoin",
       ],
       correctAnswer: 0,
     },
@@ -351,12 +337,12 @@ export const celoQuizData: Record<
       correctAnswer: 1,
     },
     {
-      question: "Which statement best describes how Celo helps Ethereum scale?",
+      question: "What does Celo's transition to an Ethereum Layer 2 mean?",
       options: [
-        "It replaces Ethereum with a new Layer 1",
-        "It moves execution off-chain and settles to Ethereum",
-        "It disables smart contracts to reduce load",
-        "It increases block time to reduce congestion",
+        "It will stop working on mobile phones",
+        "It will leverage Ethereum's security while keeping its unique features",
+        "It will become a private blockchain",
+        "It will merge with Bitcoin",
       ],
       correctAnswer: 1,
     },
