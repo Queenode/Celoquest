@@ -25,14 +25,14 @@ interface QuestProgress {
   [key: string]: "locked" | "unlocked" | "completed"
 }
 
-export default function MantleQuestsPage() {
+export default function CeloQuestsPage() {
   const router = useRouter()
   const [progress, setProgress] = useState<QuestProgress>({})
   const [hoveredQuest, setHoveredQuest] = useState<string | null>(null)
   const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
-    const savedProgress = localStorage.getItem("mantleQuestProgress")
+    const savedProgress = localStorage.getItem("celoQuestProgress")
     if (savedProgress) {
       setProgress(JSON.parse(savedProgress))
     } else {
@@ -40,7 +40,7 @@ export default function MantleQuestsPage() {
       for (let i = 1; i <= 10; i++) {
         initialProgress[i] = i === 1 ? "unlocked" : "locked"
       }
-      localStorage.setItem("mantleQuestProgress", JSON.stringify(initialProgress))
+      localStorage.setItem("celoQuestProgress", JSON.stringify(initialProgress))
       setProgress(initialProgress)
     }
     setIsLoading(false)
@@ -51,68 +51,68 @@ export default function MantleQuestsPage() {
     if (status === "locked") {
       return
     }
-    router.push(`/mantle-quests/${questId}`)
+    router.push(`/celo-quests/${questId}`)
   }
 
   const quests = [
     { 
       id: "1", 
-      title: "Mantle Network Fundamentals", 
-      description: "Discover the core concepts of Mantle Network",
+      title: "Celo Network Fundamentals", 
+      description: "Discover the core concepts of Celo Network",
       icon: Globe
     },
     { 
       id: "2", 
-      title: "Mantle's Optimistic Rollup", 
-      description: "Learn about Mantle's scaling solution",
+      title: "Celo's Optimistic Rollup", 
+      description: "Learn about Celo's scaling solution",
       icon: Zap
     },
     { 
       id: "3", 
       title: "$MNT Token & Governance", 
-      description: "Understand Mantle's native token and DAO",
+      description: "Understand Celo's native token and DAO",
       icon: Coins
     },
     { 
       id: "4", 
-      title: "Building dApps on Mantle", 
-      description: "Start developing on Mantle Network",
+      title: "Building dApps on Celo", 
+      description: "Start developing on Celo Network",
       icon: Code
     },
     { 
       id: "5", 
-      title: "Mantle's Ecosystem", 
-      description: "Explore projects in the Mantle ecosystem",
+      title: "Celo's Ecosystem", 
+      description: "Explore projects in the Celo ecosystem",
       icon: Globe2
     },
     { 
       id: "6", 
       title: "Data Availability Solution", 
-      description: "How Mantle handles data efficiently",
+      description: "How Celo handles data efficiently",
       icon: HardDrive
     },
     { 
       id: "7", 
       title: "Security & Decentralization", 
-      description: "How Mantle maintains security",
+      description: "How Celo maintains security",
       icon: Shield
     },
     { 
       id: "8", 
-      title: "Bridging Assets to Mantle", 
+      title: "Bridging Assets to Celo", 
       description: "Moving assets between chains",
       icon: GitBranch
     },
     { 
       id: "9", 
-      title: "Mantle's Roadmap", 
+      title: "Celo's Roadmap", 
       description: "Future developments and upgrades",
       icon: Map
     },
     { 
       id: "10", 
-      title: "Mantle & Ethereum", 
-      description: "Mantle's role in the broader ecosystem",
+      title: "Celo & Ethereum", 
+      description: "Celo's role in the broader ecosystem",
       icon: Link2
     },
   ]
@@ -126,7 +126,7 @@ export default function MantleQuestsPage() {
       <div className="min-h-screen bg-linear-to-b from-gray-900 to-black flex items-center justify-center">
         <div className="animate-pulse text-center">
           <div className="w-16 h-16 border-4 border-blue-500 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
-          <p className="text-blue-400">Loading your Mantle journey...</p>
+          <p className="text-blue-400">Loading your Celo journey...</p>
         </div>
       </div>
     )
@@ -158,10 +158,10 @@ export default function MantleQuestsPage() {
         {/* Header */}
         <div className="text-center mb-12">
           <h1 className="font-(family-name:--font-cinzel-decorative) text-4xl md:text-6xl font-bold text-glow-amber mb-4 text-glow-md">
-           Mantle Quest Map
+           Celo Quest Map
           </h1>
           <p className="font-(family-name:--font-cinzel) text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
-            Journey through the ancient knowledge of Mantle Network
+            Journey through the ancient knowledge of Celo Network
           </p>
         </div>
 

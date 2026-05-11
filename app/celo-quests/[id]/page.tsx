@@ -1,14 +1,14 @@
 import { AncientScroll } from "@/components/ancient-scroll"
-import { mantleScrollContent } from "@/lib/mantle-quest-data"
+import { celoScrollContent } from "@/lib/celo-quest-data"
 import { notFound } from "next/navigation"
 
 interface ScrollPageProps {
   params: Promise<{ id: string }>
 }
 
-export default async function MantleScrollPage({ params }: ScrollPageProps) {
+export default async function CeloScrollPage({ params }: ScrollPageProps) {
   const { id } = await params
-  const scrollData = mantleScrollContent[id]
+  const scrollData = celoScrollContent[id]
 
   if (!scrollData) {
     notFound()
@@ -43,7 +43,7 @@ export default async function MantleScrollPage({ params }: ScrollPageProps) {
           title={scrollData.title}
           content={scrollData.content}
           analogy={scrollData.analogy}
-          nextUrl={`/mantle-quests/${id}/room`}
+          nextUrl={`/celo-quests/${id}/room`}
         />
       </div>
     </div>
@@ -51,7 +51,7 @@ export default async function MantleScrollPage({ params }: ScrollPageProps) {
 }
 
 export async function generateStaticParams() {
-  return Object.keys(mantleScrollContent).map((id) => ({
+  return Object.keys(celoScrollContent).map((id) => ({
     id,
   }))
 }

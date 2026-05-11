@@ -2,11 +2,11 @@ import { PortalAnimation } from "@/components/portal-animation"
 import { GameButton } from "@/components/game-button"
 import Link from "next/link"
 
-interface MantleVictoryPageProps {
+interface CeloVictoryPageProps {
   params: Promise<{ id: string }>
 }
 
-export default async function MantleVictoryPage({ params }: MantleVictoryPageProps) {
+export default async function CeloVictoryPage({ params }: CeloVictoryPageProps) {
   const { id } = await params
   const nextQuestId = String(Number(id) + 1)
   const hasNextQuest = Number(id) < 10
@@ -56,7 +56,7 @@ export default async function MantleVictoryPage({ params }: MantleVictoryPagePro
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           {hasNextQuest ? (
-            <Link href={`/mantle-quests/${nextQuestId}`}>
+            <Link href={`/celo-quests/${nextQuestId}`}>
               <GameButton size="lg" className="text-xl px-10 py-5">
                 Next Quest
               </GameButton>
