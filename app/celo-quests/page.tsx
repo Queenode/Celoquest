@@ -57,62 +57,62 @@ export default function CeloQuestsPage() {
   const quests = [
     { 
       id: "1", 
-      title: "Celo Network Fundamentals", 
-      description: "Discover the core concepts of Celo Network",
+      title: "Celo Network Foundations", 
+      description: "Discover the foundations of Celo's mobile-first mission",
       icon: Globe
     },
     { 
       id: "2", 
-      title: "Celo's Optimistic Rollup", 
-      description: "Learn about Celo's scaling solution",
+      title: "Stablecoins & Mento", 
+      description: "Learn about cUSD, cEUR, and the Mento Protocol",
       icon: Zap
     },
     { 
       id: "3", 
-      title: "$MNT Token & Governance", 
-      description: "Understand Celo's native token and DAO",
+      title: "$CELO Token & Governance", 
+      description: "Understand Celo's native asset and decentralized DAO",
       icon: Coins
     },
     { 
       id: "4", 
-      title: "Building dApps on Celo", 
-      description: "Start developing on Celo Network",
+      title: "Mobile-First Accessibility", 
+      description: "Social Connect and phone number identifiers",
       icon: Code
     },
     { 
       id: "5", 
-      title: "Celo's Ecosystem", 
-      description: "Explore projects in the Celo ecosystem",
+      title: "Celo Ecosystem", 
+      description: "Explore Valora, Opera MiniPay, and more",
       icon: Globe2
     },
     { 
       id: "6", 
-      title: "Data Availability Solution", 
-      description: "How Celo handles data efficiently",
+      title: "Ethereum L2 Transition", 
+      description: "The future of Celo as an Ethereum Layer 2",
       icon: HardDrive
     },
     { 
       id: "7", 
-      title: "Security & Decentralization", 
-      description: "How Celo maintains security",
+      title: "Celo Reserve & Stability", 
+      description: "How Celo maintains currency stability",
       icon: Shield
     },
     { 
       id: "8", 
-      title: "Bridging Assets to Celo", 
-      description: "Moving assets between chains",
+      title: "Regenerative Finance (ReFi)", 
+      description: "Sustainability and impact on Celo",
       icon: GitBranch
     },
     { 
       id: "9", 
-      title: "Celo's Roadmap", 
-      description: "Future developments and upgrades",
+      title: "Developer Experience", 
+      description: "Building on Celo with familiar tools",
       icon: Map
     },
     { 
       id: "10", 
-      title: "Celo & Ethereum", 
-      description: "Celo's role in the broader ecosystem",
+      title: "Global Inclusion", 
+      description: "Celo's impact on emerging markets",
       icon: Link2
     },
   ]
@@ -133,17 +133,17 @@ export default function CeloQuestsPage() {
   }
 
   return (
-    <div className="min-h-screen bg-stone-dark relative overflow-hidden">
+    <div className="min-h-screen bg-background relative overflow-hidden">
       {/* Animated background */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(251,191,36,0.1),transparent_50%)] animate-glow-pulse" />
-      <div className="absolute inset-0 bg-[url('/dark-mystical-map-with-ancient-paths.jpg')] bg-cover bg-center opacity-20" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(53,208,127,0.1),transparent_50%)] animate-glow-pulse" />
+      <div className="absolute inset-0 bg-[url('/dark-mystical-map-with-ancient-paths.jpg')] bg-cover bg-center opacity-10" />
 
       {/* Floating particles */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {[...Array(30)].map((_, i) => (
           <div
             key={i}
-            className="absolute w-1 h-1 bg-glow-amber rounded-full animate-float-slow"
+            className="absolute w-1 h-1 bg-primary rounded-full animate-float-slow"
             style={{
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
@@ -157,7 +157,7 @@ export default function CeloQuestsPage() {
       <div className="relative z-10 container mx-auto px-4 py-12">
         {/* Header */}
         <div className="text-center mb-12">
-          <h1 className="font-(family-name:--font-cinzel-decorative) text-4xl md:text-6xl font-bold text-glow-amber mb-4 text-glow-md">
+          <h1 className="font-(family-name:--font-cinzel-decorative) text-4xl md:text-6xl font-bold text-primary mb-4 text-glow-md">
            Celo Quest Map
           </h1>
           <p className="font-(family-name:--font-cinzel) text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
@@ -180,8 +180,8 @@ export default function CeloQuestsPage() {
                     <div
                       className={`w-1 h-12 ${
                         progress[quests[index - 1].id] === "completed"
-                          ? "bg-linear-to-b from-amber-400 to-amber-500"
-                          : "bg-amber-800/50"
+                          ? "bg-linear-to-b from-primary to-secondary"
+                          : "bg-white/10"
                       }`}
                     />
                   </div>
@@ -195,12 +195,12 @@ export default function CeloQuestsPage() {
                   onClick={() => handleQuestClick(quest.id)}
                 >
                   <div
-                    className={`relative bg-card/80 backdrop-blur-sm border-2 rounded-xl p-4 md:p-6 transition-all duration-300 ${
+                    className={`relative glass-card holographic rounded-xl p-4 md:p-6 transition-all duration-300 ${
                       isLocked
-                        ? "border-border opacity-60"
+                        ? "opacity-40 grayscale"
                         : isCompleted
-                          ? "border-glow-amber shadow-glow-amber"
-                          : "border-glow-cyan shadow-glow-cyan hover:scale-105"
+                          ? "border-primary shadow-glow-primary"
+                          : "border-secondary shadow-glow-secondary hover:scale-[1.02]"
                     }`}
                   >
                     {/* Glow effect on hover */}
@@ -212,16 +212,16 @@ export default function CeloQuestsPage() {
                       {/* Status icon */}
                       <div className="shrink-0">
                         {isLocked ? (
-                          <div className="w-12 h-12 md:w-16 md:h-16 rounded-full bg-secondary/50 border-2 border-border flex items-center justify-center">
+                          <div className="w-12 h-12 md:w-16 md:h-16 rounded-full bg-white/5 border border-white/10 flex items-center justify-center">
                             <Lock className="w-6 h-6 md:w-8 md:h-8 text-muted-foreground" />
                           </div>
                         ) : isCompleted ? (
-                          <div className="w-12 h-12 md:w-16 md:h-16 rounded-full bg-glow-amber/20 border-2 border-glow-amber flex items-center justify-center animate-glow-pulse">
-                            <CheckCircle2 className="w-6 h-6 md:w-8 md:h-8 text-glow-amber" />
+                          <div className="w-12 h-12 md:w-16 md:h-16 rounded-full bg-primary/20 border-2 border-primary flex items-center justify-center animate-glow-pulse">
+                            <CheckCircle2 className="w-6 h-6 md:w-8 md:h-8 text-primary" />
                           </div>
                         ) : (
-                          <div className="w-12 h-12 md:w-16 md:h-16 rounded-full bg-glow-cyan/20 border-2 border-glow-cyan flex items-center justify-center animate-glow-pulse">
-                            <quest.icon className="w-6 h-6 md:w-8 md:h-8 text-glow-cyan" />
+                          <div className="w-12 h-12 md:w-16 md:h-16 rounded-full bg-secondary/20 border-2 border-secondary flex items-center justify-center animate-glow-pulse">
+                            <quest.icon className="w-6 h-6 md:w-8 md:h-8 text-secondary" />
                           </div>
                         )}
                       </div>
@@ -230,13 +230,13 @@ export default function CeloQuestsPage() {
                       <div className="flex-1 min-w-0">
                         <h2 className="font-(family-name:--font-cinzel-decorative) text-lg md:text-2xl font-bold mb-1 truncate">
                           {isCompleted ? (
-                            <span className="text-glow-amber">
+                            <span className="text-primary">
                               Quest {quest.id}: {quest.title}
                             </span>
                           ) : isLocked ? (
                             <span className="text-muted-foreground">Quest {quest.id}: {quest.title}</span>
                           ) : (
-                            <span className="text-glow-cyan">
+                            <span className="text-secondary font-bold">
                               Quest {quest.id}: {quest.title}
                             </span>
                           )}
@@ -263,7 +263,7 @@ export default function CeloQuestsPage() {
 
                     {/* Completion status badge */}
                     {isCompleted && (
-                      <div className="absolute -top-2 -right-2 bg-glow-amber text-stone-dark font-(family-name:--font-cinzel) text-xs font-bold px-2 py-1 rounded-full border-2 border-background shadow-glow-amber">
+                      <div className="absolute -top-2 -right-2 bg-primary text-background font-(family-name:--font-cinzel) text-xs font-bold px-2 py-1 rounded-full border-2 border-background shadow-lg">
                         COMPLETED
                       </div>
                     )}
