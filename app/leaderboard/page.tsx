@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { Trophy, Medal, Crown, Clock, Users, Star } from 'lucide-react';
 
 export const metadata = {
-  title: 'Leaderboard - Coming Soon | Mantle Quest',
+  title: 'Leaderboard - Coming Soon | Celo Quest',
   description: 'Leaderboard coming soon - See where you stand among other adventurers',
 };
 
@@ -31,7 +31,7 @@ export default function LeaderboardPage() {
               </span>
             </h1>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Compete with fellow adventurers and climb the ranks to become the ultimate Mantle Quest champion.
+              Compete with fellow adventurers and climb the ranks to become the ultimate Celo Quest champion.
             </p>
           </div>
 

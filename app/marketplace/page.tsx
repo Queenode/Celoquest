@@ -3,8 +3,8 @@ import Link from 'next/link';
 import { ShoppingBag, Coins, Trophy, Clock } from 'lucide-react';
 
 export const metadata = {
-  title: 'NFT Marketplace - Coming Soon | Mantle Quest',
-  description: 'NFT Marketplace coming soon - Trade exclusive NFTs and collectibles from your Mantle journey',
+  title: 'NFT Marketplace - Coming Soon | Celo Quest',
+  description: 'NFT Marketplace coming soon - Trade exclusive NFTs and collectibles from your Celo journey',
 };
 
 export default function MarketplacePage() {
@@ -31,7 +31,7 @@ export default function MarketplacePage() {
               </span>
             </h1>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Get ready to trade exclusive NFTs, quest rewards, and digital collectibles on the Mantle network.
+              Get ready to trade exclusive NFTs, quest rewards, and digital collectibles on the Celo network.
             </p>
           </div>
 
@@ -58,7 +58,7 @@ export default function MarketplacePage() {
                 <ShoppingBag className="w-6 h-6 text-amber-400" />
               </div>
               <h3 className="text-lg font-semibold text-amber-400">Secure Trading</h3>
-              <p className="text-muted-foreground">Safe and transparent transactions on the Mantle blockchain</p>
+              <p className="text-muted-foreground">Safe and transparent transactions on the Celo blockchain</p>
             </div>
           </div>
 
