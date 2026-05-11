@@ -5,7 +5,7 @@ import "@openzeppelin/contracts/access/AccessControl.sol";
 
 enum QuestType {
     ETHEREUM,
-    MANTLE
+    CELO
 }
 
 contract Leaderboard is AccessControl {
@@ -14,7 +14,7 @@ contract Leaderboard is AccessControl {
     struct PlayerStats {
         uint256 totalXP;
         uint256 ethereumXP;
-        uint256 mantleXP;
+        uint256 celoXP;
         uint256 lastUpdateTime;
     }
 
@@ -41,7 +41,7 @@ contract Leaderboard is AccessControl {
      * @notice Update a player's score after quest completion
      * @param player Address of the player
      * @param xpEarned Amount of XP earned for this quest
-     * @param questType Type of quest (0 = ETHEREUM, 1 = MANTLE)
+     * @param questType Type of quest (0 = ETHEREUM, 1 = CELO)
      * @param questId ID of the completed quest
      */
     function updateScore(
@@ -63,8 +63,8 @@ contract Leaderboard is AccessControl {
         // Update quest type specific XP
         if (questType == uint8(QuestType.ETHEREUM)) {
             stats.ethereumXP += xpEarned;
-        } else if (questType == uint8(QuestType.MANTLE)) {
-            stats.mantleXP += xpEarned;
+        } else if (questType == uint8(QuestType.CELO)) {
+            stats.celoXP += xpEarned;
         }
 
         emit ScoreUpdated(player, questType, questId, xpEarned, stats.totalXP);
@@ -89,8 +89,8 @@ contract Leaderboard is AccessControl {
     function getPlayerQuestTypeXP(address player, uint8 questType) external view returns (uint256 questTypeXP) {
         if (questType == uint8(QuestType.ETHEREUM)) {
             return playerStats[player].ethereumXP;
-        } else if (questType == uint8(QuestType.MANTLE)) {
-            return playerStats[player].mantleXP;
+        } else if (questType == uint8(QuestType.CELO)) {
+            return playerStats[player].celoXP;
         }
         return 0;
     }
@@ -182,20 +182,20 @@ contract Leaderboard is AccessControl {
      * @param player Address of the player
      * @return totalXP Total XP across all quest types
      * @return ethereumXP XP earned from Ethereum quests
-     * @return mantleXP XP earned from Mantle quests
+     * @return celoXP XP earned from Celo quests
      * @return globalRank Player's global rank
      */
     function getPlayerStats(address player) external view returns (
         uint256 totalXP,
         uint256 ethereumXP,
-        uint256 mantleXP,
+        uint256 celoXP,
         uint256 globalRank
     ) {
         PlayerStats memory stats = playerStats[player];
         return (
             stats.totalXP,
             stats.ethereumXP,
-            stats.mantleXP,
+            stats.celoXP,
             getPlayerRank(player)
         );
     }
