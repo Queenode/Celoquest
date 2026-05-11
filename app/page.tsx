@@ -1,10 +1,16 @@
 import Link from "next/link"
 import { GameButton } from "@/components/game-button"
 import { Volume2, Settings, ChevronDown } from "lucide-react"
+import { HeroScene } from "@/components/HeroScene"
 
 export default function LandingPage() {
   return (
-    <div className="relative min-h-screen overflow-hidden bg-stone-dark">
+    <div className="relative min-h-screen overflow-hidden bg-background">
+      {/* 3D Hero Section */}
+      <div className="absolute inset-0 z-0 opacity-60">
+        <HeroScene />
+      </div>
+
       {/* Animated background with premium gradient */}
       <div className="absolute inset-0 opacity-20">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/30 via-background to-secondary/20" />
