@@ -99,6 +99,63 @@ export default function LandingPage() {
           </div>
         </div>
       </div>
+      {/* Ecosystem Updates */}
+      <section className="relative z-10 py-24 container mx-auto px-6">
+        <div className="flex flex-col md:flex-row items-end justify-between mb-12 gap-6">
+          <div className="max-w-xl">
+            <h2 className="font-[family-name:var(--font-cinzel-decorative)] text-3xl md:text-5xl font-bold text-primary mb-4 tracking-wider">
+              ECOSYSTEM UPDATES
+            </h2>
+            <p className="font-[family-name:var(--font-cinzel)] text-white/60 text-lg">
+              Stay updated with the latest advancements in the Celo prosperity network.
+            </p>
+          </div>
+          <Link href="/ecosystem">
+            <GameButton variant="secondary" className="px-8">View All Projects</GameButton>
+          </Link>
+        </div>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {[
+            { title: "Mobile-First L2 Transition", date: "May 2026", desc: "Celo's transition to Ethereum L2 is underway, bringing unprecedented scalability." },
+            { title: "cREAL Expansion", date: "May 2026", desc: "The Celo Real stablecoin is expanding its utility across Latin American markets." },
+            { title: "Social Connect Launch", date: "April 2026", desc: "Mapping phone numbers to wallets just became easier with the new Social Connect update." }
+          ].map((item, i) => (
+            <div key={i} className="glass-card holographic rounded-2xl p-6 border border-white/5 hover:translate-y-[-5px] transition-all cursor-pointer">
+              <span className="text-[10px] font-bold text-secondary uppercase tracking-[3px]">{item.date}</span>
+              <h3 className="text-xl font-bold text-white mt-2 mb-4">{item.title}</h3>
+              <p className="text-white/40 text-sm leading-relaxed mb-6">{item.desc}</p>
+              <div className="flex items-center text-primary text-xs font-bold gap-2">
+                READ STORY <ArrowRight className="w-3 h-3" />
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="relative z-10 py-12 border-t border-white/5 bg-black/40 backdrop-blur-md">
+        <div className="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 bg-primary/20 rounded-lg flex items-center justify-center border border-primary/30">
+              <span className="text-primary font-black text-xl">C</span>
+            </div>
+            <span className="font-[family-name:var(--font-cinzel-decorative)] text-xl font-bold tracking-widest text-white">
+              CELOQUEST
+            </span>
+          </div>
+          
+          <div className="text-white/40 text-sm font-[family-name:var(--font-cinzel)]">
+            © 2026 CeloQuest. Built for a world of prosperity.
+          </div>
+
+          <div className="flex items-center gap-6 text-white/40">
+            <Link href="#" className="hover:text-primary transition-colors">Privacy</Link>
+            <Link href="#" className="hover:text-primary transition-colors">Terms</Link>
+            <Link href="#" className="hover:text-primary transition-colors">Docs</Link>
+          </div>
+        </div>
+      </footer>
     </div>
   )
 }
