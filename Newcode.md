@@ -317,12 +317,10 @@ export default function TempleGame() {
 
     // Letters (ONE AT A TIME - appear in difficult/dangerous locations near guards)
     const letterData = [
-      { id: 'M', x: -50, z: 0 },   // Near horizontal guard path
-      { id: 'A', x: 0, z: -60 },   // Near vertical guard path
-      { id: 'N', x: 30, z: 30 },   // Near diagonal guard path
-      { id: 'T', x: -40, z: 50 },  // Near another guard patrol
-      { id: 'L', x: 60, z: -30 },  // Near guard path
-      { id: 'E', x: 0, z: 0 }      // Center - most dangerous!
+      { id: 'C', x: -50, z: 0 },   // Near horizontal guard path
+      { id: 'E', x: 0, z: -60 },   // Near vertical guard path
+      { id: 'L', x: 30, z: 30 },   // Near diagonal guard path
+      { id: 'O', x: -40, z: 50 }   // Near another guard patrol
     ];
 
     letterData.forEach((data, index) => {
@@ -660,7 +658,7 @@ export default function TempleGame() {
                   
                   setMessage(`✨ Found "${letter.userData.id}"! Look for the yellow beam - next letter appeared!`);
                 } else {
-                  setMessage('🎉 All letters found! MANTLE complete! You survived the temple!');
+                  setMessage('🎉 All letters found! CELO complete! You survived the temple!');
                 }
                 
                 return newLetters;
@@ -697,7 +695,7 @@ export default function TempleGame() {
     };
   }, [gameOver]);
 
-  const targetWord = 'MANTLE';
+  const targetWord = 'CELO';
 
   const resetGame = () => {
     setFoundLetters([]);
@@ -711,8 +709,8 @@ export default function TempleGame() {
     <div className="w-full h-screen bg-gray-900 flex flex-col">
       {/* Header UI */}
       <div className="bg-gray-800 p-3 text-white">
-        <h1 className="text-2xl font-bold text-center text-yellow-400 mb-2">
-          Temple Quest - Survive & Find MANTLE
+        <h1 className="text-2xl font-bold text-center text-green-400 mb-2">
+          Temple Quest - Survive & Find CELO
         </h1>
         <div className="flex justify-between items-center mb-2 px-4">
           <div className="flex gap-2">
@@ -759,14 +757,14 @@ export default function TempleGame() {
       <div ref={containerRef} className="flex-1" />
 
       {/* Game Over / Victory Overlay */}
-      {(gameOver || foundLetters.length === 6) && (
+      {(gameOver || foundLetters.length === 4) && (
         <div className="absolute inset-0 bg-black bg-opacity-75 flex items-center justify-center">
           <div className="bg-gray-800 p-8 rounded-lg text-center max-w-md">
             {gameOver ? (
               <>
                 <h2 className="text-4xl font-bold text-red-500 mb-4">💀 Game Over!</h2>
                 <p className="text-white mb-2">You were defeated in the temple.</p>
-                <p className="text-gray-400 mb-6">Letters found: {foundLetters.length}/6</p>
+                <p className="text-gray-400 mb-6">Letters found: {foundLetters.length}/4</p>
                 <button
                   onClick={resetGame}
                   className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-lg transition-colors"
@@ -778,7 +776,7 @@ export default function TempleGame() {
               <>
                 <h2 className="text-4xl font-bold text-yellow-400 mb-4">🎉 Victory!</h2>
                 <p className="text-white mb-2">You found all letters and survived!</p>
-                <p className="text-green-400 mb-6 text-2xl font-bold">MANTLE COMPLETE</p>
+                <p className="text-green-400 mb-6 text-2xl font-bold">CELO COMPLETE</p>
                 <button
                   onClick={() => alert('Starting Section 1 Quest!')}
                   className="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-8 rounded-lg mb-3 transition-colors block w-full"

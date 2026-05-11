@@ -1,13 +1,13 @@
 import type { Metadata } from "next"
-import { Cinzel, Cinzel_Decorative } from "next/font/google"
+import { Outfit, Cinzel_Decorative } from "next/font/google"
 import { Analytics } from "@vercel/analytics/react"
 import { Web3Provider } from "./providers"
 import { Header } from "@/components/header"
 import "./globals.css"
 
-const cinzel = Cinzel({
+const outfit = Outfit({
   subsets: ["latin"],
-  variable: "--font-cinzel",
+  variable: "--font-outfit",
   display: "swap",
 })
 
@@ -19,8 +19,8 @@ const cinzelDecorative = Cinzel_Decorative({
 })
 
 export const metadata: Metadata = {
-  title: "Ethereum Quest - A Mystical Journey",
-  description: "Embark on an ancient adventure to master the secrets of Ethereum",
+  title: "CeloQuest - Prosperity Through Knowledge",
+  description: "Embark on a digital journey to master the Celo ecosystem and unlock prosperity.",
   generator: "v0.app",
   icons: {
     icon: [
@@ -48,7 +48,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark" suppressHydrationWarning>
-      <body className={`${cinzel.variable} ${cinzelDecorative.variable} font-sans antialiased`} suppressHydrationWarning>
+      <body className={`${outfit.variable} ${cinzelDecorative.variable} font-sans antialiased`} suppressHydrationWarning>
         <Web3Provider>
           <div className="min-h-screen flex flex-col">
             <Header />

@@ -1,14 +1,14 @@
-# Mantle Quest - Blockchain Quest Platform
+# CeloQuest - Blockchain Quest Platform
 
-Mantle Quest is a decentralized application (dApp) built on the Mantle blockchain that enables users to participate in quests, complete tasks, and earn rewards. The platform combines the power of Next.js, Wagmi, Viem, and smart contracts to create an engaging Web3 experience.
+CeloQuest is a decentralized application (dApp) built on the Celo blockchain that enables users to participate in quests, complete tasks, and earn rewards. The platform combines the power of Next.js, Wagmi, Viem, and smart contracts to create an engaging Web3 experience.
 
 ## 🌟 Features
 
 - **Web3 Integration**: Seamless wallet connection with Wagmi and Viem
-- **Smart Contract Interaction**: Interact with Ethereum smart contracts securely
+- **Smart Contract Interaction**: Interact with Celo smart contracts securely
 - **Responsive UI**: Built with modern React and Tailwind CSS
 - **Type Safety**: Full TypeScript support for better developer experience
-- **DeFi Ready**: Integration with Ethereum and other EVM-compatible chains
+- **DeFi Ready**: Integration with Celo and other EVM-compatible chains
 
 ## 🛠 Tech Stack
 
@@ -17,7 +17,7 @@ Mantle Quest is a decentralized application (dApp) built on the Mantle blockchai
 - **State Management**: React Query for server state management
 - **Blockchain**:
   - Wagmi v3 for wallet connections
-  - Viem for Ethereum interaction
+  - Viem for Celo interaction
   - Smart contracts written in Solidity
 - **Animation**: Framer Motion for smooth animations
 - **Icons**: Lucide React for beautiful icons
@@ -27,14 +27,14 @@ Mantle Quest is a decentralized application (dApp) built on the Mantle blockchai
 - Node.js 18+ and npm/yarn/pnpm
 - Git
 - MetaMask or any Web3 wallet
-- Basic understanding of Ethereum and smart contracts
+- Basic understanding of Celo and smart contracts
 
 ## 🚀 Quick Start
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/yourusername/mantle-quest.git
-   cd mantle-quest
+   git clone https://github.com/yourusername/celo-quest.git
+   cd celo-quest
    ```
 
 2. **Install dependencies**
@@ -68,10 +68,10 @@ Mantle Quest is a decentralized application (dApp) built on the Mantle blockchai
 
 ### 1. Welcome Screen (`/`)
 **What You'll See First**
-When you first open the application, you'll be greeted by an immersive welcome screen designed to feel like an ancient, mystical world. The background features a textured stone wall with subtle animations that make it feel alive. Small, twinkling lights float gently across the screen, creating a magical atmosphere.
+When you first open the application, you'll be greeted by an immersive welcome screen designed to feel like a modern, prosperous world. The background features a textured surface with subtle animations that make it feel alive. Small, twinkling lights float gently across the screen, creating a magical atmosphere.
 
 **Key Features**:
-- **Interactive Background**: The stone texture moves slightly as you navigate, with soft fog effects that add depth
+- **Interactive Background**: The texture moves slightly as you navigate, with soft glow effects that add depth
 - **Main Menu**: Large, easy-to-read buttons guide you to different parts of the app
 - **Sound Controls**: Easily adjust or mute background music and sound effects
 - **Settings Access**: Quick access to customize your experience
@@ -218,7 +218,7 @@ An interactive way to learn more about the game's world and mechanics.
 ## 🏗 Project Structure
 
 ```
-mantle-quest/
+celo-quest/
 ├── app/                # Next.js app directory
 ├── components/         # Reusable UI components
 ├── hooks/              # Custom React hooks
@@ -255,10 +255,10 @@ The project includes Solidity smart contracts for managing quests and rewards. T
 ### Frontend
 Deploy the Next.js application to Vercel or your preferred hosting provider:
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fyourusername%2Fmantle-quest&project-name=mantle-quest&repository-name=mantle-quest)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fyourusername%2Fcelo-quest&project-name=celo-quest&repository-name=celo-quest)
 
 ### Smart Contracts
-#### Mantle Sepolia Testnet (Chain ID: 5003)
+#### Celo Mainnet (Chain ID: 42220)
 
 Deployed contract addresses:
 
@@ -271,21 +271,14 @@ Deployed contract addresses:
 
 Explorer links:
 
-- **XPToken**: https://explorer.testnet.mantle.xyz/address/0xd9fc6cc979472a5fa52750ae26805462e1638872
-- **ChapterNFT**: https://explorer.testnet.mantle.xyz/address/0x274f499201b0716e6cb632ff5bec10cad508ead6
-- **Leaderboard**: https://explorer.testnet.mantle.xyz/address/0x3a89a1611b309cd883a22c99463936fc4a0dee03
-- **GameCore**: https://explorer.testnet.mantle.xyz/address/0xaa1deb4cc3c3386d813e7f7b2ff52a7c4efb675e
-
-Deployment transactions:
-
-- **XPToken create**: https://explorer.testnet.mantle.xyz/tx/0x95cc5df2a24ff6ef4c465e2844e874a36d11fdd455d2ddac9caf37216ae6f641
-- **ChapterNFT create**: https://explorer.testnet.mantle.xyz/tx/0xf025484fbeb57770d9d8feb4ec14d87bcaa37283759bf77adc32204e1fa610be
-- **Leaderboard create**: https://explorer.testnet.mantle.xyz/tx/0x8dea10376907afa807972fc118e87a4bac9f12f437e019ecf1fb8e7d7ab8f951
-- **GameCore create**: https://explorer.testnet.mantle.xyz/tx/0x6ebf02e9898d5b55fe5171606baf575bf8b8cf806dc1db03354124bdf0831fa4
+- **XPToken**: https://celoscan.io/address/0xd9fc6cc979472a5fa52750ae26805462e1638872
+- **ChapterNFT**: https://celoscan.io/address/0x274f499201b0716e6cb632ff5bec10cad508ead6
+- **Leaderboard**: https://celoscan.io/address/0x3a89a1611b309cd883a22c99463936fc4a0dee03
+- **GameCore**: https://celoscan.io/address/0xaa1deb4cc3c3386d813e7f7b2ff52a7c4efb675e
 
 RPC:
 
-- `https://rpc.sepolia.mantle.xyz`
+- `https://forno.celo.org`
 
 #### Deploy (your own)
 Deploy your smart contracts using Foundry:
