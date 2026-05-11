@@ -1,10 +1,10 @@
-export const mantleQuestRooms = {
+export const celoQuestRooms = {
   "1": {
     id: "1",
     title: "The Genesis Chamber",
-    description: "Begin your journey into the Mantle Network. Discover the foundation of this Layer 2 solution and its role in scaling Ethereum.",
+    description: "Begin your journey into the Celo Network. Discover the foundation of this Layer 2 solution and its role in scaling Ethereum.",
     letter: "M",
-    nextUrl: "/mantle-quests/2",
+    nextUrl: "/celo-quests/2",
     word: "MANTLE",
     letters: [
       {
@@ -54,9 +54,9 @@ export const mantleQuestRooms = {
   "2": {
     id: "2",
     title: "The Optimistic Vault",
-    description: "Explore how Mantle uses Optimistic Rollups to scale Ethereum while maintaining security.",
+    description: "Explore how Celo uses Optimistic Rollups to scale Ethereum while maintaining security.",
     letter: "A",
-    nextUrl: "/mantle-quests/3",
+    nextUrl: "/celo-quests/3",
     word: "ROLLUP",
     letters: [
       {
@@ -106,9 +106,9 @@ export const mantleQuestRooms = {
   "3": {
     id: "3",
     title: "The Council Hall",
-    description: "Learn how governance and the $MNT token help steer Mantle’s evolution.",
+    description: "Learn how governance and the $MNT token help steer Celo’s evolution.",
     letter: "G",
-    nextUrl: "/mantle-quests/4",
+    nextUrl: "/celo-quests/4",
     word: "GOVERN",
     letters: [
       {
@@ -158,9 +158,9 @@ export const mantleQuestRooms = {
   "4": {
     id: "4",
     title: "The Builder’s Forge",
-    description: "Discover how developers deploy and run dApps on Mantle with EVM compatibility.",
+    description: "Discover how developers deploy and run dApps on Celo with EVM compatibility.",
     letter: "D",
-    nextUrl: "/mantle-quests/5",
+    nextUrl: "/celo-quests/5",
     word: "DEPLOY",
     letters: [
       {
@@ -210,9 +210,9 @@ export const mantleQuestRooms = {
   "5": {
     id: "5",
     title: "The Modular Workshop",
-    description: "Explore Mantle’s modular architecture and how it separates key blockchain responsibilities.",
+    description: "Explore Celo’s modular architecture and how it separates key blockchain responsibilities.",
     letter: "M",
-    nextUrl: "/mantle-quests/6",
+    nextUrl: "/celo-quests/6",
     word: "MODULE",
     letters: [
       {
@@ -262,9 +262,9 @@ export const mantleQuestRooms = {
   "6": {
     id: "6",
     title: "The Archive Library",
-    description: "Learn how Mantle approaches data availability to reduce cost while keeping verification possible.",
+    description: "Learn how Celo approaches data availability to reduce cost while keeping verification possible.",
     letter: "A",
-    nextUrl: "/mantle-quests/7",
+    nextUrl: "/celo-quests/7",
     word: "ACCESS",
     letters: [
       {
@@ -314,9 +314,9 @@ export const mantleQuestRooms = {
   "7": {
     id: "7",
     title: "The Sentinel Gate",
-    description: "Understand how Mantle combines Ethereum security with additional decentralization safeguards.",
+    description: "Understand how Celo combines Ethereum security with additional decentralization safeguards.",
     letter: "S",
-    nextUrl: "/mantle-quests/8",
+    nextUrl: "/celo-quests/8",
     word: "SECURE",
     letters: [
       {
@@ -366,9 +366,9 @@ export const mantleQuestRooms = {
   "8": {
     id: "8",
     title: "The Bridge Crossing",
-    description: "Learn how assets can move between Ethereum and Mantle using secure bridges.",
+    description: "Learn how assets can move between Ethereum and Celo using secure bridges.",
     letter: "B",
-    nextUrl: "/mantle-quests/9",
+    nextUrl: "/celo-quests/9",
     word: "BRIDGE",
     letters: [
       {
@@ -418,9 +418,9 @@ export const mantleQuestRooms = {
   "9": {
     id: "9",
     title: "The Horizon Chamber",
-    description: "Explore Mantle’s roadmap and future upgrades as the ecosystem grows.",
+    description: "Explore Celo’s roadmap and future upgrades as the ecosystem grows.",
     letter: "F",
-    nextUrl: "/mantle-quests/10",
+    nextUrl: "/celo-quests/10",
     word: "FUTURE",
     letters: [
       {
@@ -470,9 +470,9 @@ export const mantleQuestRooms = {
   "10": {
     id: "10",
     title: "The Ecosystem Nexus",
-    description: "Understand Mantle’s role inside Ethereum’s broader multi-chain ecosystem.",
+    description: "Understand Celo’s role inside Ethereum’s broader multi-chain ecosystem.",
     letter: "E",
-    nextUrl: "/mantle-quests",
+    nextUrl: "/celo-quests",
     word: "ECOSYS",
     letters: [
       {
@@ -521,4 +521,4 @@ export const mantleQuestRooms = {
   }
 } as const;
 
-export type MantleQuestRoom = typeof mantleQuestRooms[keyof typeof mantleQuestRooms];
+export type CeloQuestRoom = typeof celoQuestRooms[keyof typeof celoQuestRooms];
