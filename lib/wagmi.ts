@@ -1,7 +1,7 @@
 import { http, createConfig } from 'wagmi'
 import { mainnet } from 'wagmi/chains'
 import { coinbaseWallet, walletConnect, metaMask, injected } from 'wagmi/connectors'
-import { CONTRACT_ADDRESSES, MANTLE_NETWORK } from '@/constants/contracts'
+import { CONTRACT_ADDRESSES, CELO_NETWORK } from '@/constants/contracts'
 
 // WalletConnect project ID - you should get this from WalletConnect Cloud
 const projectId = process.env.NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID || ''
@@ -21,8 +21,8 @@ const getConnectors = () => {
   try {
     connectors.push(metaMask({
       dappMetadata: {
-        name: 'Mantle EthQuest',
-        url: 'https://mantlequest.app',
+        name: 'CeloQuest',
+        url: 'https://celoquest.app',
       },
     }))
   } catch (error) {
@@ -31,8 +31,8 @@ const getConnectors = () => {
   
   // Add Coinbase Wallet
   connectors.push(coinbaseWallet({
-    appName: 'Mantle EthQuest',
-    appLogoUrl: 'https://mantlequest.app/logo.png',
+    appName: 'CeloQuest',
+    appLogoUrl: 'https://celoquest.app/logo.png',
   }))
   
   // Add WalletConnect if project ID is available
@@ -40,10 +40,10 @@ const getConnectors = () => {
     connectors.push(walletConnect({ 
       projectId,
       metadata: {
-        name: 'Mantle EthQuest',
-        description: 'Web3 Quest Game on Mantle Network',
-        url: 'https://mantlequest.app',
-        icons: ['https://mantlequest.app/logo.png'],
+        name: 'CeloQuest',
+        description: 'Web3 Quest Game on Celo Network',
+        url: 'https://celoquest.app',
+        icons: ['https://celoquest.app/logo.png'],
       },
     }))
   }
@@ -52,10 +52,10 @@ const getConnectors = () => {
 }
 
 export const config = createConfig({
-  chains: [MANTLE_NETWORK, mainnet], // Use our custom Mantle chain definition
+  chains: [CELO_NETWORK, mainnet], // Use our custom Celo chain definition
   connectors: getConnectors(),
   transports: {
-    [MANTLE_NETWORK.id]: http(MANTLE_NETWORK.rpcUrls.default.http[0]),
+    [CELO_NETWORK.id]: http(CELO_NETWORK.rpcUrls.default.http[0]),
     [mainnet.id]: http(), // Add mainnet transport for compatibility
   },
   ssr: true,
