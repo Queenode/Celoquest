@@ -2,10 +2,10 @@
 export const CONTRACT_ADDRESSES = {
   // Celo Mainnet (Chain ID: 42220)
   CELO: {
-    XP_TOKEN: '0xd9fc6cC979472A5FA52750ae26805462E1638872' as `0x${string}`, // Placeholder - need redeployment
-    CHAPTER_NFT: '0x274f499201b0716e6CB632FF5BEc10cAD508eAD6' as `0x${string}`, // Placeholder
-    LEADERBOARD: '0x3A89A1611B309cD883a22C99463936fC4a0deE03' as `0x${string}`, // Placeholder
-    GAME_CORE: '0xAa1deb4Cc3c3386D813E7f7b2fF52a7c4EFB675e' as `0x${string}`, // Placeholder
+    XP_TOKEN: '0x59e188c22faa5b9fc004a97cf7bde85ca8a0ac4a' as `0x${string}`,
+    CHAPTER_NFT: '0xa51d3fb3858ef1741ffa7a85d5cce0b7da28da59' as `0x${string}`,
+    LEADERBOARD: '0x9c0c8a0a72717d9588f5457dc697d95f4c2a7b7e' as `0x${string}`,
+    GAME_CORE: '0x7286f0ae716e89e0c701b95a3da3a5730c2ee681' as `0x${string}`,
     REWARD_SIGNER: '0xb216270aFB9DfcD611AFAf785cEB38250863F2C9' as `0x${string}`,
   }
 } as const;
