@@ -163,10 +163,10 @@ If RPC connection fails:
 
 | Contract | Address |
 | :--- | :--- |
-| **XPToken** | `0x59e188c22faa5b9fc004a97cf7bde85ca8a0ac4a` |
-| **ChapterNFT** | `0xa51d3fb3858ef1741ffa7a85d5cce0b7da28da59` |
-| **Leaderboard** | `0x9c0c8a0a72717d9588f5457dc697d95f4c2a7b7e` |
-| **GameCore** | `0x7286f0ae716e89e0c701b95a3da3a5730c2ee681` |
+| **XPToken** | `0x40964fe5ad88565a1cc144c567e446efa3464483` |
+| **ChapterNFT** | `0x4e703a7f1c21e9ca2236a79ae2ba77d892ba4b75` |
+| **Leaderboard** | `0x664653fbd55982eba38328f2be408e93280133db` |
+| **GameCore** | `0x4119c4b90bbd7b9f598c53a44294fa05fe9f26fd` |
 
 ## Support
 
