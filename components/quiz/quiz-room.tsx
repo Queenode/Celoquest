@@ -24,7 +24,7 @@ interface QuizRoomProps {
   };
   correctAnswers: Record<string, string>;
   nextUrl: string;
-  questType: 'mantle' | 'ethereum';
+  questType: 'celo' | 'ethereum';
 }
 
 export function QuizRoom({ quizData, correctAnswers, nextUrl, questType }: QuizRoomProps) {

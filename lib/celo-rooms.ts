@@ -5,7 +5,7 @@ export const celoQuestRooms = {
     description: "Begin your journey into the Celo Network. Discover the foundation of this Layer 2 solution and its role in scaling Ethereum.",
     letter: "M",
     nextUrl: "/celo-quests/2",
-    word: "MANTLE",
+    word: "MOBILE",
     letters: [
       {
         id: "m",

@@ -8,7 +8,7 @@ interface QuestRoomProps {
   description: string;
   letter: string;
   nextUrl: string;
-  questType: 'mantle' | 'ethereum';
+  questType: 'celo' | 'ethereum';
 }
 
 export function QuestRoom({ title, description, letter, nextUrl, questType }: QuestRoomProps) {

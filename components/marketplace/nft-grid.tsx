@@ -38,7 +38,7 @@ const MOCK_NFTS: NFT[] = [
   {
     id: '1',
     name: 'Golden Dragon Egg',
-    description: 'A rare dragon egg from the depths of the Mantle blockchain',
+    description: 'A rare dragon egg from the depths of the Celo blockchain',
     image: '/nfts/dragon-egg.png',
     price: '0.1',
     seller: '0x1234...5678',
@@ -51,7 +51,7 @@ const MOCK_NFTS: NFT[] = [
   {
     id: '2',
     name: 'Mystic Sword',
-    description: 'A powerful sword imbued with ancient Mantle magic',
+    description: 'A powerful sword imbued with ancient Celo magic',
     image: '/nfts/mystic-sword.png',
     price: '0.25',
     seller: '0x2345...6789',

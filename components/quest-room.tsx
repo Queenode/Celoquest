@@ -4,11 +4,11 @@ import React, { useEffect, useRef, useState } from 'react';
 import * as THREE from 'three';
 import { useRouter, usePathname } from 'next/navigation';
 import { questRooms } from '@/lib/quest-data';
-import { mantleQuestRooms } from '@/lib/mantle-quest-data';
+import { celoQuestRooms } from '@/lib/celo-rooms';
 
 interface QuestRoomProps {
   questId: string;
-  questType?: 'ethereum' | 'mantle'; // Add questType prop
+  questType?: 'ethereum' | 'celo'; // Add questType prop
 }
 
 export default function QuestRoom({ questId, questType }: QuestRoomProps) {
@@ -25,15 +25,15 @@ export default function QuestRoom({ questId, questType }: QuestRoomProps) {
   const questData = (() => {
     // Primary detection: Use pathname (most reliable)
     const isEthereumRoute = pathname?.startsWith('/quest/');
-    const isMantleRoute = pathname?.includes('/mantle-quests/') && pathname?.includes('/room');
+    const isCeloRoute = pathname?.includes('/celo-quests/') && pathname?.includes('/room');
     
     // Route-based detection (primary method)
     if (isEthereumRoute) {
       return questRooms[questId]; // Ethereum quest data: NODE, GAS, CONTRACT, etc.
     }
     
-    if (isMantleRoute) {
-      return mantleQuestRooms[questId]; // Mantle quest data: MANTLE, ROLLUP, etc.
+    if (isCeloRoute) {
+      return celoQuestRooms[questId]; // Celo quest data: MOBILE, ROLLUP, etc.
     }
     
     // Backup: Use explicit questType prop (already passed from route pages)
@@ -41,8 +41,8 @@ export default function QuestRoom({ questId, questType }: QuestRoomProps) {
       return questRooms[questId];
     }
     
-    if (questType === 'mantle') {
-      return mantleQuestRooms[questId];
+    if (questType === 'celo') {
+      return celoQuestRooms[questId];
     }
     
     // No problematic fallback - if we can't determine the route, return null
@@ -823,11 +823,11 @@ export default function QuestRoom({ questId, questType }: QuestRoomProps) {
   const handleProceed = () => {
     // Navigate to correct quiz based on quest type
     const isEthereumRoute = pathname?.startsWith('/quest/');
-    const isMantleRoute = pathname?.includes('/mantle-quests/') && pathname?.includes('/room');
+    const isCeloRoute = pathname?.includes('/celo-quests/') && pathname?.includes('/room');
     
-    if (questType === 'mantle' || isMantleRoute) {
-      // Mantle quest → go to Mantle quiz
-      router.push(`/mantle-quests/${questId}/quiz`);
+    if (questType === 'celo' || isCeloRoute) {
+      // Celo quest → go to Celo quiz
+      router.push(`/celo-quests/${questId}/quiz`);
     } else if (questType === 'ethereum' || isEthereumRoute) {
       // Ethereum quest → go to Ethereum quiz
       router.push(`/quiz/${questId}`);

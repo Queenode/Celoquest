@@ -1,4 +1,4 @@
-# Foundry configuration for QuestEth smartcontracts
+# Foundry configuration for CeloQuest smartcontracts
 [profile.default]
 src = "src"
 out = "out"
@@ -13,11 +13,11 @@ remappings = [
     "openzeppelin-contracts/=lib/openzeppelin-contracts/contracts/"
 ]
 
-# Mantle Mainnet
+# Celo Networks
 [rpc_endpoints]
-mantle = "${MANTLE_RPC_URL}"
-mantle_testnet = "https://rpc.sepolia.mantle.xyz"
+celo = "${CELO_RPC_URL}"
+alfajores = "https://alfajores-forno.celo-testnet.org"
 
 [etherscan]
-mantle = { key = "${MANTLE_API_KEY}", url = "https://explorer.mantle.xyz/api" }
-mantle_testnet = { key = "${MANTLE_API_KEY}", url = "https://explorer.testnet.mantle.xyz/api" }
+celo = { key = "${CELOSCAN_API_KEY}", url = "https://api.celoscan.io/api" }
+alfajores = { key = "${CELOSCAN_API_KEY}", url = "https://api-alfajores.celoscan.io/api" }

@@ -1,6 +1,6 @@
-# Deployment Guide for Mantle Network
+# Deployment Guide for Celo Network
 
-This guide will help you deploy the QuestEth smart contracts to the Mantle network.
+This guide will help you deploy the CeloQuest smart contracts to the Celo network.
 
 ## Prerequisites
 
@@ -10,13 +10,13 @@ This guide will help you deploy the QuestEth smart contracts to the Mantle netwo
    foundryup
    ```
 
-2. **Mantle Network Setup**:
-   - **Mainnet**: Chain ID `5000`
-   - **Testnet**: Chain ID `5001`
-   - Get testnet ETH from: https://faucet.testnet.mantle.xyz
+2. **Celo Network Setup**:
+   - **Mainnet**: Chain ID `42220`
+   - **Alfajores (Testnet)**: Chain ID `44787`
+   - Get testnet CELO from: https://faucet.celo.org
 
 3. **Required Accounts**:
-   - **Deployer Account**: Account with MNT (Mantle native token) to pay for gas
+   - **Deployer Account**: Account with CELO (Celo native token) to pay for gas
    - **Reward Signer Account**: Separate account that will sign progress vouchers (EIP-712)
 
 ## Step 1: Install Dependencies
@@ -42,11 +42,11 @@ forge install OpenZeppelin/openzeppelin-contracts
    REWARD_SIGNER=0xYourRewardSignerAddress
    
    # RPC URLs (use testnet for testing)
-   MANTLE_RPC_URL=https://rpc.mantle.xyz
-   MANTLE_TESTNET_RPC_URL=https://rpc.testnet.mantle.xyz
+   CELO_RPC_URL=https://forno.celo.org
+   CELO_ALFAJORES_RPC_URL=https://alfajores-forno.celo-testnet.org
    
-   # Optional: API key for contract verification
-   MANTLE_API_KEY=your_api_key_here
+   # Optional: API key for contract verification (Celoscan)
+   CELOSCAN_API_KEY=your_api_key_here
    ```
 
 ## Step 3: Build Contracts
@@ -55,25 +55,25 @@ forge install OpenZeppelin/openzeppelin-contracts
 forge build
 ```
 
-## Step 4: Deploy to Mantle Testnet (Recommended First)
+## Step 4: Deploy to Celo Alfajores Testnet (Recommended First)
 
 ```bash
-# Deploy to Mantle Testnet
+# Deploy to Celo Alfajores
 forge script script/Deploy.s.sol:Deploy \
-  --rpc-url mantle_testnet \
+  --rpc-url alfajores \
   --broadcast \
   --verify \
   -vvvv
 ```
 
-## Step 5: Deploy to Mantle Mainnet
+## Step 5: Deploy to Celo Mainnet
 
 **⚠️ WARNING: Only deploy to mainnet after thorough testing on testnet!**
 
 ```bash
-# Deploy to Mantle Mainnet
+# Deploy to Celo Mainnet
 forge script script/Deploy.s.sol:Deploy \
-  --rpc-url mantle \
+  --rpc-url celo \
   --broadcast \
   --verify \
   -vvvv
@@ -81,9 +81,9 @@ forge script script/Deploy.s.sol:Deploy \
 
 ## Step 6: Verify Deployment
 
-After deployment, the script will output all contract addresses. Verify them on Mantle Explorer:
-- **Mainnet**: https://explorer.mantle.xyz
-- **Testnet**: https://explorer.testnet.mantle.xyz
+After deployment, the script will output all contract addresses. Verify them on Celoscan:
+- **Mainnet**: https://celoscan.io
+- **Alfajores**: https://alfajores.celoscan.io
 
 ## Deployment Order
 
@@ -104,17 +104,7 @@ After deployment, the script automatically:
 
 ### Update Frontend Configuration
 
-After deployment, update your frontend configuration with the deployed contract addresses:
-
-```typescript
-// Example: lib/web3.ts or similar config file
-export const CONTRACTS = {
-  XPToken: "0x...", // Deployed XPToken address
-  ChapterNFT: "0x...", // Deployed ChapterNFT address
-  Leaderboard: "0x...", // Deployed Leaderboard address
-  GameCore: "0x...", // Deployed GameCore address
-};
-```
+After deployment, update your frontend configuration with the deployed contract addresses in `constants/contracts.ts`.
 
 ### Update NFT Base URI
 
@@ -122,7 +112,7 @@ If you need to change the NFT metadata URI after deployment:
 
 ```bash
 cast send <ChapterNFT_ADDRESS> "setBaseURI(string)" "https://your-new-base-uri.com/nft/" \
-  --rpc-url mantle \
+  --rpc-url celo \
   --private-key $PRIVATE_KEY
 ```
 
@@ -132,7 +122,7 @@ If you need to change the reward signer address:
 
 ```bash
 cast send <GameCore_ADDRESS> "setRewardSigner(address)" <NEW_SIGNER_ADDRESS> \
-  --rpc-url mantle \
+  --rpc-url celo \
   --private-key $PRIVATE_KEY
 ```
 
@@ -156,23 +146,21 @@ cast send <GameCore_ADDRESS> "setRewardSigner(address)" <NEW_SIGNER_ADDRESS> \
 
 ### Insufficient Gas
 If deployment fails due to gas:
-- Ensure your deployer account has enough MNT
-- Check gas prices: https://explorer.mantle.xyz
+- Ensure your deployer account has enough CELO
+- Check gas prices: https://celoscan.io/gastracker
 
 ### Contract Verification Failed
 If verification fails:
-- Ensure `MANTLE_API_KEY` is set correctly
-- Try manual verification on Mantle Explorer
+- Ensure `CELOSCAN_API_KEY` is set correctly
+- Try manual verification on Celoscan
 
 ### RPC Connection Issues
 If RPC connection fails:
 - Check your RPC URL is correct
-- Try alternative RPC endpoints:
-  - Mainnet: `https://rpc.ankr.com/mantle`
-  - Testnet: `https://rpc.testnet.mantle.xyz`
+- Try alternative RPC endpoints (e.g., Ankr, QuickNode)
 
 ## Support
 
 For issues or questions:
-- Mantle Docs: https://docs.mantle.xyz
+- Celo Docs: https://docs.celo.org
 - Foundry Book: https://book.getfoundry.sh

@@ -2,13 +2,13 @@
 
 ## ✅ Integration Summary
 
-I have successfully completed the full frontend integration with your deployed Mantle smart contracts. Here's what was implemented:
+I have successfully completed the full frontend integration with your deployed Celo smart contracts. Here's what was implemented:
 
 ### 📁 Files Created/Updated:
 
 #### 1. **Contract Configuration** (`constants/contracts.ts`)
-- ✅ All deployed contract addresses (Mantle network)
-- ✅ Network configuration with proper chain ID (5003)
+- ✅ All deployed contract addresses (Celo network)
+- ✅ Network configuration with proper chain ID (42220)
 - ✅ Quest type enums and function names
 - ✅ Type-safe TypeScript interfaces
 
@@ -18,7 +18,7 @@ I have successfully completed the full frontend integration with your deployed M
 - ✅ `index.ts` - Centralized exports
 
 #### 3. **Wagmi Configuration** (`lib/wagmi.ts`)
-- ✅ Mantle network integration
+- ✅ Celo network integration
 - ✅ MetaMask, Coinbase Wallet, WalletConnect connectors
 - ✅ Proper RPC configuration
 
@@ -37,7 +37,7 @@ I have successfully completed the full frontend integration with your deployed M
 
 #### 6. **Updated Components**
 - ✅ **Leaderboard Component** - Now reads live data from smart contract
-- ✅ **Providers** - Updated with Mantle network configuration
+- ✅ **Providers** - Updated with Celo network configuration
 - ✅ **WalletConnect** - Works with new contract setup
 
 ### 🚀 Key Features Implemented:
@@ -46,7 +46,7 @@ I have successfully completed the full frontend integration with your deployed M
 - Real-time quest completion status
 - Quiz score and timing tracking
 - XP calculation with performance bonuses
-- Quest type separation (Ethereum vs Mantle)
+- Quest type separation (Ethereum vs Celo)
 
 #### **Leaderboard Integration**
 - Live leaderboard data from smart contracts
@@ -61,21 +61,21 @@ I have successfully completed the full frontend integration with your deployed M
 - User statistics retrieval
 
 #### **Web3 Infrastructure**
-- Mantle network support (Chain ID: 5003)
+- Celo network support (Chain ID: 42220)
 - Multiple wallet connectors
 - Type-safe contract interactions
 - Error handling and user feedback
 
-### 📊 Contract Addresses (Mantle Network):
+### 📊 Contract Addresses (Celo Mainnet):
 
 ```typescript
 CONTRACT_ADDRESSES = {
-  MANTLE: {
+  CELO: {
     XP_TOKEN: "0xd9fc6cC979472A5FA52750ae26805462E1638872",
     CHAPTER_NFT: "0x274f499201b0716e6CB632FF5BEc10cAD508eAD6", 
     LEADERBOARD: "0x3A89A1611B309cD883a22C99463936fC4a0deE03",
     GAME_CORE: "0xAa1deb4Cc3c3386D813E7f7b2fF52a7c4EFB675e",
-    REWARD_SIGNER: "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266"
+    REWARD_SIGNER: "0xb216270aFB9DfcD611AFAf785cEB38250863F2C9"
   }
 }
 ```
@@ -96,12 +96,12 @@ CONTRACT_ADDRESSES = {
 - `Leaderboard.getPlayerStats()` - Get detailed player statistics
 
 ### ✅ Build Status: 
-**SUCCESS** - 61 pages generated, all integrations working!
+**SUCCESS** - All integrations working!
 
 ### 🎮 Ready for Production:
 
-The frontend is now fully integrated with your deployed Mantle smart contracts. Users can:
-- Connect their wallets to Mantle network
+The frontend is now fully integrated with your deployed Celo smart contracts. Users can:
+- Connect their wallets to Celo network
 - Complete quests and submit progress to blockchain
 - View their XP and ranking on the live leaderboard  
 - Track completion status across all quest types
@@ -116,4 +116,4 @@ The frontend is now fully integrated with your deployed Mantle smart contracts. 
 
 ---
 
-**🎉 Your Mantle EthQuest frontend is now fully connected to the blockchain and ready for users!**
+**🎉 Your CeloQuest frontend is fully connected to the blockchain and ready for Proof of Ship submission!**

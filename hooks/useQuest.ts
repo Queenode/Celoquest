@@ -37,7 +37,7 @@ export function useQuestCompletion() {
       const signature = '0x'; // Empty signature for now
       
       await writeContract({
-        address: CONTRACT_ADDRESSES.MANTLE.GAME_CORE,
+        address: CONTRACT_ADDRESSES.CELO.GAME_CORE,
         abi: gameCoreABI,
         functionName: 'claimProgress',
         args: [

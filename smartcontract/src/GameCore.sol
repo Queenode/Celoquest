@@ -20,7 +20,7 @@ interface ILeaderboard {
 
 enum QuestType {
     ETHEREUM,
-    MANTLE
+    CELO
 }
 
 /// @title GameCore
@@ -101,17 +101,17 @@ contract GameCore is EIP712, AccessControl {
         _setQuestToChapterMapping(QuestType.ETHEREUM, 9, 3);
         _setQuestToChapterMapping(QuestType.ETHEREUM, 10, 4);
         
-        // Mantle quests: 1-3 = chapter 5, 4-6 = chapter 6, etc.
-        _setQuestToChapterMapping(QuestType.MANTLE, 1, 5);
-        _setQuestToChapterMapping(QuestType.MANTLE, 2, 5);
-        _setQuestToChapterMapping(QuestType.MANTLE, 3, 5);
-        _setQuestToChapterMapping(QuestType.MANTLE, 4, 6);
-        _setQuestToChapterMapping(QuestType.MANTLE, 5, 6);
-        _setQuestToChapterMapping(QuestType.MANTLE, 6, 6);
-        _setQuestToChapterMapping(QuestType.MANTLE, 7, 7);
-        _setQuestToChapterMapping(QuestType.MANTLE, 8, 7);
-        _setQuestToChapterMapping(QuestType.MANTLE, 9, 7);
-        _setQuestToChapterMapping(QuestType.MANTLE, 10, 8);
+        // Celo quests: 1-3 = chapter 5, 4-6 = chapter 6, etc.
+        _setQuestToChapterMapping(QuestType.CELO, 1, 5);
+        _setQuestToChapterMapping(QuestType.CELO, 2, 5);
+        _setQuestToChapterMapping(QuestType.CELO, 3, 5);
+        _setQuestToChapterMapping(QuestType.CELO, 4, 6);
+        _setQuestToChapterMapping(QuestType.CELO, 5, 6);
+        _setQuestToChapterMapping(QuestType.CELO, 6, 6);
+        _setQuestToChapterMapping(QuestType.CELO, 7, 7);
+        _setQuestToChapterMapping(QuestType.CELO, 8, 7);
+        _setQuestToChapterMapping(QuestType.CELO, 9, 7);
+        _setQuestToChapterMapping(QuestType.CELO, 10, 8);
     }
 
     function _setQuestToChapterMapping(QuestType questType, uint256 questId, uint256 chapterId) internal {
@@ -294,7 +294,7 @@ contract GameCore is EIP712, AccessControl {
         if (playerProgress[QuestType.ETHEREUM][user][questId].completed) {
             return 100;
         }
-        if (playerProgress[QuestType.MANTLE][user][questId].completed) {
+        if (playerProgress[QuestType.CELO][user][questId].completed) {
             return 100;
         }
         return 0;
@@ -303,6 +303,6 @@ contract GameCore is EIP712, AccessControl {
     /// @notice Legacy function for backward compatibility
     function isCompleted(address user, uint256 questId) external view returns (bool) {
         return playerProgress[QuestType.ETHEREUM][user][questId].completed || 
-               playerProgress[QuestType.MANTLE][user][questId].completed;
+               playerProgress[QuestType.CELO][user][questId].completed;
     }
 }

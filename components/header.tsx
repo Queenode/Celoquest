@@ -12,8 +12,8 @@ const navigation = [
     isNew: false
   },
   { 
-    name: 'Mantle Quests', 
-    href: '/mantle-quests',
+    name: 'Celo Quests', 
+    href: '/celo-quests',
     isNew: false
   },
   { 

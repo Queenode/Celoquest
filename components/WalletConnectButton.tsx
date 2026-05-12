@@ -3,7 +3,7 @@
 import { useAccount, useConnect, useDisconnect, useSwitchChain } from 'wagmi';
 import { Button } from './ui/button';
 import { useState, useEffect } from 'react';
-import { MANTLE_NETWORK } from '@/constants/contracts';
+import { CELO_NETWORK } from '@/constants/contracts';
 
 export function WalletConnectButton() {
   const { address, isConnected, chain } = useAccount();
@@ -26,8 +26,8 @@ export function WalletConnectButton() {
     }
   }, [connectors]);
 
-  // Check if we need to switch to Mantle network
-  const needsNetworkSwitch = isConnected && chain?.id !== MANTLE_NETWORK.id;
+  // Check if we need to switch to Celo network
+  const needsNetworkSwitch = isConnected && chain?.id !== CELO_NETWORK.id;
 
   // Don't render during SSR
   if (!mounted) {
@@ -56,10 +56,10 @@ export function WalletConnectButton() {
       <div className="flex items-center gap-2">
         <span className="text-sm text-yellow-500">Wrong Network</span>
         <Button 
-          onClick={() => switchChain({ chainId: MANTLE_NETWORK.id })}
-          className="bg-orange-600 hover:bg-orange-700 text-white"
+          onClick={() => switchChain({ chainId: CELO_NETWORK.id })}
+          className="bg-emerald-600 hover:bg-emerald-700 text-white"
         >
-          Switch to Mantle
+          Switch to Celo
         </Button>
         <Button variant="outline" onClick={() => disconnect()}>
           Disconnect

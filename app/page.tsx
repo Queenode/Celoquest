@@ -1,6 +1,6 @@
 import Link from "next/link"
 import { GameButton } from "@/components/game-button"
-import { Volume2, Settings, ChevronDown } from "lucide-react"
+import { Volume2, Settings, ChevronDown, ArrowRight } from "lucide-react"
 import { HeroScene } from "@/components/HeroScene"
 
 export default function LandingPage() {
