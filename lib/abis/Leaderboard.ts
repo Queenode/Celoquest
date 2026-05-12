@@ -24,7 +24,7 @@ export const leaderboardABI = [
     "outputs": [
       {"name": "totalXP", "type": "uint256", "internalType": "uint256"},
       {"name": "ethereumXP", "type": "uint256", "internalType": "uint256"},
-      {"name": "mantleXP", "type": "uint256", "internalType": "uint256"},
+      {"name": "celoXP", "type": "uint256", "internalType": "uint256"},
       {"name": "globalRank", "type": "uint256", "internalType": "uint256"}
     ],
     "stateMutability": "view"
