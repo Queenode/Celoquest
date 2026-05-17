@@ -121,7 +121,7 @@ export default function LandingPage() {
             { title: "cREAL Expansion", date: "May 2026", desc: "The Celo Real stablecoin is expanding its utility across Latin American markets." },
             { title: "Social Connect Launch", date: "April 2026", desc: "Mapping phone numbers to wallets just became easier with the new Social Connect update." }
           ].map((item, i) => (
-            <div key={i} className="glass-card holographic rounded-2xl p-6 border border-white/5 hover:translate-y-[-5px] transition-all cursor-pointer">
+            <div key={i} className="glass-card holographic rounded-2xl p-6 border border-white/10 hover:translate-y-[-5px] transition-all cursor-pointer">
               <span className="text-[10px] font-bold text-secondary uppercase tracking-[3px]">{item.date}</span>
               <h3 className="text-xl font-bold text-white mt-2 mb-4">{item.title}</h3>
               <p className="text-white/40 text-sm leading-relaxed mb-6">{item.desc}</p>
