@@ -71,7 +71,7 @@ export default function LandingPage() {
         </Link>
 
         {/* Scroll indicator */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-muted-foreground animate-bounce">
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-muted-foreground animate-pulse">
           <span className="text-sm font-[family-name:var(--font-outfit)] tracking-widest uppercase">Explore System</span>
           <ChevronDown className="w-6 h-6 text-primary" />
         </div>
