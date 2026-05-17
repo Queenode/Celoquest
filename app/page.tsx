@@ -78,7 +78,7 @@ export default function LandingPage() {
       </div>
 
       {/* Bottom instructions section (visible on scroll) */}
-      <div className="relative z-10 min-h-screen flex items-center justify-center px-4 py-20 bg-background/50 backdrop-blur-sm">
+      <div className="relative z-10 min-h-screen flex items-center justify-center px-4 py-20 bg-background/60 backdrop-blur-sm">
         <div className="max-w-4xl mx-auto text-center space-y-12">
           <h3 className="font-[family-name:var(--font-cinzel-decorative)] text-5xl font-bold text-primary drop-shadow-[0_0_15px_rgba(53,208,127,0.3)]">
             System Protocols
