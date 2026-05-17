@@ -49,7 +49,7 @@ export default function LandingPage() {
       <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-4">
         {/* Logo with glow effect */}
         <div className="mb-12 text-center">
-          <h1 className="font-[family-name:var(--font-cinzel-decorative)] text-7xl md:text-9xl font-black text-primary drop-shadow-[0_0_30px_rgba(53,208,127,0.6)] mb-2 tracking-wider animate-in fade-in slide-in-from-top-10 duration-1000">
+          <h1 className="font-[family-name:var(--font-cinzel-decorative)] text-7xl md:text-9xl font-black text-primary drop-shadow-[0_0_30px_rgba(53,208,127,0.6)] mb-2 tracking-wider animate-in fade-in slide-in-from-top-10 duration-700">
             CELO 
           </h1>
           <h2 className="font-[family-name:var(--font-cinzel-decorative)] text-6xl md:text-8xl font-black text-secondary drop-shadow-[0_0_20px_rgba(251,204,92,0.4)] tracking-widest animate-in fade-in slide-in-from-bottom-10 duration-1000 delay-200">
