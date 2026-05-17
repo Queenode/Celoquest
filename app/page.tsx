@@ -100,7 +100,7 @@ export default function LandingPage() {
         </div>
       </div>
       {/* Ecosystem Updates */}
-      <section className="relative z-10 py-24 container mx-auto px-6">
+      <section className="relative z-10 py-20 container mx-auto px-6">
         <div className="flex flex-col md:flex-row items-end justify-between mb-12 gap-6">
           <div className="max-w-xl">
             <h2 className="font-[family-name:var(--font-cinzel-decorative)] text-3xl md:text-5xl font-bold text-primary mb-4 tracking-wider">
