@@ -134,7 +134,7 @@ export default function LandingPage() {
       </section>
 
       {/* Footer */}
-      <footer className="relative z-10 py-10 border-t border-white/5 bg-black/40 backdrop-blur-md">
+      <footer className="relative z-10 py-10 border-t border-white/5 bg-black/50 backdrop-blur-md">
         <div className="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 bg-primary/20 rounded-lg flex items-center justify-center border border-primary/30">
