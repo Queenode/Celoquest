@@ -59,7 +59,7 @@ export default function LandingPage() {
         </div>
 
         {/* Description */}
-        <p className="font-[family-name:var(--font-outfit)] text-center max-w-md md:max-w-lg text-foreground/80 text-lg md:text-xl leading-relaxed mb-12 text-balance animate-in fade-in zoom-in duration-1000 delay-500">
+        <p className="font-[family-name:var(--font-outfit)] text-center max-w-md md:max-w-lg text-foreground/80 text-base md:text-lg leading-relaxed mb-12 text-balance animate-in fade-in zoom-in duration-1000 delay-500">
           Embark on a high-stakes journey into the Celo ecosystem. Master the protocols of prosperity, solve complex puzzles, and unlock the future of finance.
         </p>
 
