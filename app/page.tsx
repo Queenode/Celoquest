@@ -125,7 +125,7 @@ export default function LandingPage() {
               <span className="text-[10px] font-bold text-secondary uppercase tracking-[3px]">{item.date}</span>
               <h3 className="text-xl font-bold text-white mt-2 mb-4">{item.title}</h3>
               <p className="text-white/40 text-sm leading-relaxed mb-6">{item.desc}</p>
-              <div className="flex items-center text-primary text-xs font-bold gap-2">
+              <div className="flex items-center text-secondary text-xs font-bold gap-2">
                 READ STORY <ArrowRight className="w-3 h-3" />
               </div>
             </div>
