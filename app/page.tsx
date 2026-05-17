@@ -29,7 +29,7 @@ export default function LandingPage() {
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
               animationDelay: `${Math.random() * 3}s`,
-              animationDuration: `${3 + Math.random() * 2}s`,
+              animationDuration: `${4 + Math.random() * 2}s`,
             }}
           />
         ))}
