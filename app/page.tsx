@@ -12,7 +12,7 @@ export default function LandingPage() {
       </div>
 
       {/* Animated background with premium gradient */}
-      <div className="absolute inset-0 opacity-20">
+      <div className="absolute inset-0 opacity-25">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/40 via-background to-secondary/20" />
       </div>
 
