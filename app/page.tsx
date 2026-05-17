@@ -85,7 +85,7 @@ export default function LandingPage() {
           </h3>
           <div className="grid md:grid-cols-3 gap-8">
             <div className="p-8 bg-white/5 backdrop-blur-md rounded-2xl border border-white/10 hover:border-primary/50 transition-all group">
-              <h4 className="text-2xl font-bold text-secondary mb-4 group-hover:scale-110 transition-transform">💎 Acquire XP</h4>
+              <h4 className="text-2xl font-bold text-secondary mb-4 group-hover:scale-105 transition-transform">💎 Acquire XP</h4>
               <p className="text-foreground/70 font-[family-name:var(--font-outfit)]">Complete high-value tasks to earn governance-ready XP tokens.</p>
             </div>
             <div className="p-8 bg-white/5 backdrop-blur-md rounded-2xl border border-white/10 hover:border-primary/50 transition-all group">
