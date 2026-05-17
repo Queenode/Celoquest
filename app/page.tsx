@@ -24,7 +24,7 @@ export default function LandingPage() {
         {[...Array(20)].map((_, i) => (
           <div
             key={i}
-            className="absolute w-1 h-1 bg-primary rounded-full animate-pulse shadow-[0_0_10px_rgba(53,208,127,0.8)]"
+            className="absolute w-1 h-1 bg-primary rounded-full animate-pulse shadow-[0_0_15px_rgba(53,208,127,0.8)]"
             style={{
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
