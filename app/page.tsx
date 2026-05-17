@@ -66,7 +66,7 @@ export default function LandingPage() {
         <Link href="/path-selection">
           <GameButton size="lg" className="text-xl md:text-2xl px-12 py-6 mb-8 group overflow-hidden">
             <span className="relative z-10">Start Adventure</span>
-            <div className="absolute inset-0 bg-gradient-to-r from-primary via-secondary to-primary opacity-0 group-hover:opacity-20 transition-opacity duration-500" />
+            <div className="absolute inset-0 bg-gradient-to-r from-primary via-secondary to-primary opacity-0 group-hover:opacity-30 transition-opacity duration-500" />
           </GameButton>
         </Link>
 
