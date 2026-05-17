@@ -37,7 +37,7 @@ export default function LandingPage() {
 
       {/* Top controls */}
       <div className="absolute top-6 right-6 flex gap-4 z-20">
-        <button className="w-10 h-10 rounded-full bg-white/5 backdrop-blur-md border border-white/10 flex items-center justify-center text-foreground/70 hover:text-primary hover:border-primary/50 transition-all hover:scale-105">
+        <button className="w-10 h-10 rounded-full bg-white/5 backdrop-blur-md border border-white/20 flex items-center justify-center text-foreground/70 hover:text-primary hover:border-primary/50 transition-all hover:scale-105">
           <Volume2 className="w-5 h-5" />
         </button>
         <button className="w-10 h-10 rounded-full bg-white/5 backdrop-blur-md border border-white/10 flex items-center justify-center text-foreground/70 hover:text-primary hover:border-primary/50 transition-all hover:scale-110">
