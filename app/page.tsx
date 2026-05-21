@@ -1,35 +1,32 @@
 import Link from "next/link"
 import { GameButton } from "@/components/game-button"
-import { Volume2, Settings, ChevronDown, ArrowRight } from "lucide-react"
-import { HeroScene } from "@/components/HeroScene"
+import { Volume2, Settings, ChevronDown } from "lucide-react"
+import { MiniPayBadge } from "@/components/minipay-badge"
 
 export default function LandingPage() {
   return (
-    <div className="relative min-h-screen overflow-hidden bg-background">
-      {/* 3D Hero Section */}
-      <div className="absolute inset-0 z-0 opacity-60">
-        <HeroScene />
+    <div className="relative min-h-screen overflow-hidden bg-stone-dark flex flex-col justify-between">
+      <MiniPayBadge />
+      
+      {/* Animated background with stone texture */}
+      <div className="absolute inset-0 opacity-30">
+        <div className="absolute inset-0 bg-[url('/dark-stone-temple-wall-texture.jpg')] bg-cover bg-center" />
       </div>
 
-      {/* Animated background with premium gradient */}
-      <div className="absolute inset-0 opacity-25">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/40 via-background to-secondary/20" />
-      </div>
-
-      {/* Grid overlay */}
-      <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]" />
+      {/* Fog overlay */}
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-fog to-background/50" />
 
       {/* Particles/stars */}
       <div className="absolute inset-0">
         {[...Array(20)].map((_, i) => (
           <div
             key={i}
-            className="absolute w-1 h-1 bg-primary rounded-full animate-pulse shadow-[0_0_15px_rgba(53,208,127,0.8)]"
+            className="absolute w-1 h-1 bg-glow-amber rounded-full animate-float"
             style={{
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
               animationDelay: `${Math.random() * 3}s`,
-              animationDuration: `${4 + Math.random() * 2}s`,
+              animationDuration: `${3 + Math.random() * 2}s`,
             }}
           />
         ))}
@@ -37,125 +34,68 @@ export default function LandingPage() {
 
       {/* Top controls */}
       <div className="absolute top-6 right-6 flex gap-4 z-20">
-        <button className="w-10 h-10 rounded-full bg-white/5 backdrop-blur-md border border-white/20 flex items-center justify-center text-foreground/70 hover:text-primary hover:border-primary/50 transition-all hover:scale-105">
+        <button className="w-10 h-10 rounded-full bg-secondary/50 backdrop-blur-sm flex items-center justify-center text-foreground/70 hover:text-foreground hover:bg-secondary transition-all hover:scale-110 shadow-lg">
           <Volume2 className="w-5 h-5" />
         </button>
-        <button className="w-10 h-10 rounded-full bg-white/5 backdrop-blur-md border border-white/10 flex items-center justify-center text-foreground/70 hover:text-primary hover:border-primary/50 transition-all hover:scale-110">
+        <button className="w-10 h-10 rounded-full bg-secondary/50 backdrop-blur-sm flex items-center justify-center text-foreground/70 hover:text-foreground hover:bg-secondary transition-all hover:scale-110 shadow-lg">
           <Settings className="w-5 h-5" />
         </button>
       </div>
 
       {/* Main content */}
-      <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-4">
+      <div className="relative z-10 flex flex-col items-center justify-center min-h-[100dvh] px-6 lg:px-8">
         {/* Logo with glow effect */}
-        <div className="mb-12 text-center">
-          <h1 className="font-[family-name:var(--font-cinzel-decorative)] text-7xl md:text-9xl font-black text-primary drop-shadow-[0_0_30px_rgba(53,208,127,0.6)] mb-2 tracking-wider animate-in fade-in slide-in-from-top-10 duration-700">
+        <div className="mb-14 text-center animate-float">
+          <h1 className="font-[family-name:var(--font-cinzel-decorative)] text-6xl md:text-8xl lg:text-9xl font-black text-glow-amber text-glow mb-4 tracking-wider">
             CELO 
           </h1>
-          <h2 className="font-[family-name:var(--font-cinzel-decorative)] text-6xl md:text-8xl font-black text-secondary drop-shadow-[0_0_20px_rgba(251,204,92,0.4)] tracking-widest animate-in fade-in slide-in-from-bottom-10 duration-1000 delay-200">
+          <h2 className="font-[family-name:var(--font-cinzel-decorative)] text-5xl md:text-7xl lg:text-8xl font-black text-glow-cyan text-glow tracking-widest">
             QUEST
           </h2>
-          <div className="mt-6 w-48 h-1 mx-auto bg-gradient-to-r from-transparent via-primary to-transparent animate-pulse" />
+          <div className="mt-8 w-64 h-1 mx-auto bg-gradient-to-r from-transparent via-glow-amber to-transparent animate-shimmer" />
         </div>
 
         {/* Description */}
-        <p className="font-[family-name:var(--font-outfit)] text-center max-w-md md:max-w-lg text-foreground/80 text-base md:text-lg leading-relaxed mb-12 text-balance animate-in fade-in zoom-in duration-1000 delay-500">
-          Embark on a high-stakes journey into the Celo ecosystem. Master the protocols of prosperity, solve complex puzzles, and unlock the future of finance.
+        <p className="font-[family-name:var(--font-cinzel)] text-center max-w-lg md:max-w-2xl text-foreground/90 text-lg md:text-2xl leading-relaxed mb-14 text-balance drop-shadow-md">
+          A mystical journey into the world of Celo. Learn ancient knowledge, solve cryptic puzzles, and conquer
+          legendary quests.
         </p>
 
-        <Link href="/path-selection">
-          <GameButton size="lg" className="text-xl md:text-2xl px-12 py-6 mb-8 group overflow-hidden">
-            <span className="relative z-10">Start Adventure</span>
-            <div className="absolute inset-0 bg-gradient-to-r from-primary via-secondary to-primary opacity-0 group-hover:opacity-30 transition-opacity duration-500" />
+        <Link href="/path-selection" className="group">
+          <GameButton size="lg" className="text-xl md:text-2xl px-14 py-8 mb-8 shadow-2xl transition-transform group-hover:scale-105">
+            Start Adventure
           </GameButton>
         </Link>
 
         {/* Scroll indicator */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-muted-foreground animate-pulse">
-          <span className="text-sm font-[family-name:var(--font-outfit)] tracking-widest uppercase">Explore System</span>
-          <ChevronDown className="w-6 h-6 text-primary" />
+        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 text-foreground/60 animate-bounce">
+          <span className="text-sm md:text-base font-[family-name:var(--font-cinzel)] tracking-wider">Scroll for Instructions</span>
+          <ChevronDown className="w-7 h-7" />
         </div>
       </div>
 
       {/* Bottom instructions section (visible on scroll) */}
-      <div className="relative z-10 min-h-screen flex items-center justify-center px-4 py-20 bg-background/60 backdrop-blur-sm">
+      <div className="relative z-10 min-h-screen flex items-center justify-center px-4 py-24 bg-gradient-to-t from-background/90 to-transparent">
         <div className="max-w-4xl mx-auto text-center space-y-12">
-          <h3 className="font-[family-name:var(--font-cinzel-decorative)] text-5xl font-bold text-primary drop-shadow-[0_0_15px_rgba(53,208,127,0.3)]">
-            System Protocols
+          <h3 className="font-[family-name:var(--font-cinzel-decorative)] text-5xl font-bold text-glow-amber text-glow-sm">
+            How to Play
           </h3>
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="p-8 bg-white/5 backdrop-blur-md rounded-2xl border border-white/10 hover:border-primary/50 transition-all group">
-              <h4 className="text-2xl font-bold text-secondary mb-4 group-hover:scale-105 transition-transform">💎 Acquire XP</h4>
-              <p className="text-foreground/70 font-[family-name:var(--font-outfit)]">Complete high-value tasks to earn governance-ready XP tokens.</p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-foreground/90 font-[family-name:var(--font-cinzel)] text-lg leading-relaxed">
+            <div className="p-8 bg-card/60 backdrop-blur-md rounded-xl border border-white/10 shadow-2xl hover:bg-card/80 transition-colors">
+              <h4 className="text-2xl font-bold text-glow-cyan mb-4">📜 Read the Scrolls</h4>
+              <p className="text-foreground/80">Ancient parchments will reveal the knowledge you seek</p>
             </div>
-            <div className="p-8 bg-white/5 backdrop-blur-md rounded-2xl border border-white/10 hover:border-primary/50 transition-all group">
-              <h4 className="text-2xl font-bold text-secondary mb-4 group-hover:scale-110 transition-transform">⚡ Deploy Assets</h4>
-              <p className="text-foreground/70 font-[family-name:var(--font-outfit)]">Interact with Celo smart contracts to verify your on-chain expertise.</p>
+            <div className="p-8 bg-card/60 backdrop-blur-md rounded-xl border border-white/10 shadow-2xl hover:bg-card/80 transition-colors">
+              <h4 className="text-2xl font-bold text-glow-cyan mb-4">🏛️ Explore Quest Rooms</h4>
+              <p className="text-foreground/80">Solve rune puzzles and answer riddles to collect letters</p>
             </div>
-            <div className="p-8 bg-white/5 backdrop-blur-md rounded-2xl border border-white/10 hover:border-primary/50 transition-all group">
-              <h4 className="text-2xl font-bold text-secondary mb-4 group-hover:scale-110 transition-transform">🏆 Rise in Rank</h4>
-              <p className="text-foreground/70 font-[family-name:var(--font-outfit)]">Compete on the global leaderboard and secure your spot as a top Talent.</p>
+            <div className="p-8 bg-card/60 backdrop-blur-md rounded-xl border border-white/10 shadow-2xl hover:bg-card/80 transition-colors">
+              <h4 className="text-2xl font-bold text-glow-cyan mb-4">❓ Answer the Riddles</h4>
+              <p className="text-foreground/80">Prove your wisdom by conquering the quiz challenges</p>
             </div>
           </div>
         </div>
       </div>
-      {/* Ecosystem Updates */}
-      <section className="relative z-10 py-20 container mx-auto px-6">
-        <div className="flex flex-col md:flex-row items-end justify-between mb-12 gap-6">
-          <div className="max-w-xl">
-            <h2 className="font-[family-name:var(--font-cinzel-decorative)] text-3xl md:text-5xl font-bold text-primary mb-4 tracking-wider">
-              ECOSYSTEM UPDATES
-            </h2>
-            <p className="font-[family-name:var(--font-cinzel)] text-white/60 text-lg">
-              Stay updated with the latest advancements in the Celo prosperity network.
-            </p>
-          </div>
-          <Link href="/ecosystem">
-            <GameButton variant="secondary" className="px-8">View All Projects</GameButton>
-          </Link>
-        </div>
-
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {[
-            { title: "Mobile-First L2 Transition", date: "May 2026", desc: "Celo's transition to Ethereum L2 is underway, bringing unprecedented scalability." },
-            { title: "cREAL Expansion", date: "May 2026", desc: "The Celo Real stablecoin is expanding its utility across Latin American markets." },
-            { title: "Social Connect Launch", date: "April 2026", desc: "Mapping phone numbers to wallets just became easier with the new Social Connect update." }
-          ].map((item, i) => (
-            <div key={i} className="glass-card holographic rounded-2xl p-6 border border-white/10 hover:translate-y-[-5px] transition-all cursor-pointer">
-              <span className="text-[10px] font-bold text-secondary uppercase tracking-[4px]">{item.date}</span>
-              <h3 className="text-xl font-bold text-white mt-2 mb-4">{item.title}</h3>
-              <p className="text-white/50 text-sm leading-relaxed mb-6">{item.desc}</p>
-              <div className="flex items-center text-secondary text-xs font-bold gap-2">
-                READ STORY <ArrowRight className="w-3 h-3" />
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Footer */}
-      <footer className="relative z-10 py-10 border-t border-white/5 bg-black/50 backdrop-blur-md">
-        <div className="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 bg-primary/20 rounded-lg flex items-center justify-center border border-primary/30">
-              <span className="text-primary font-black text-xl">C</span>
-            </div>
-            <span className="font-[family-name:var(--font-cinzel-decorative)] text-xl font-bold tracking-widest text-white">
-              CELOQUEST
-            </span>
-          </div>
-          
-          <div className="text-white/40 text-sm font-[family-name:var(--font-cinzel)]">
-            © 2026 CeloQuest. Built for a world of prosperity.
-          </div>
-
-          <div className="flex items-center gap-6 text-white/40">
-            <Link href="#" className="hover:text-primary transition-colors">Privacy</Link>
-            <Link href="#" className="hover:text-primary transition-colors">Terms</Link>
-            <Link href="#" className="hover:text-primary transition-colors">Docs</Link>
-          </div>
-        </div>
-      </footer>
     </div>
   )
 }
