@@ -1,7 +1,10 @@
 import Link from "next/link"
 import { GameButton } from "@/components/game-button"
-import { Volume2, Settings, ChevronDown } from "lucide-react"
+import { Volume2, Settings } from "lucide-react"
 import { MiniPayBadge } from "@/components/minipay-badge"
+import { FogOverlay } from "@/components/fog-overlay"
+import { AnimatedParticles } from "@/components/animated-particles"
+import { ScrollIndicator } from "@/components/scroll-indicator"
 
 export default function LandingPage() {
   return (
@@ -14,23 +17,10 @@ export default function LandingPage() {
       </div>
 
       {/* Fog overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-fog to-background/50" />
+      <FogOverlay />
 
       {/* Particles/stars */}
-      <div className="absolute inset-0">
-        {[...Array(20)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute w-1 h-1 bg-glow-amber rounded-full animate-float"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 3}s`,
-              animationDuration: `${3 + Math.random() * 2}s`,
-            }}
-          />
-        ))}
-      </div>
+      <AnimatedParticles />
 
       {/* Top controls */}
       <div className="absolute top-6 right-6 flex gap-4 z-20">
@@ -68,10 +58,7 @@ export default function LandingPage() {
         </Link>
 
         {/* Scroll indicator */}
-        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 text-foreground/60 animate-bounce">
-          <span className="text-sm md:text-base font-[family-name:var(--font-cinzel)] tracking-wider">Scroll for Instructions</span>
-          <ChevronDown className="w-7 h-7" />
-        </div>
+        <ScrollIndicator />
       </div>
 
       {/* Bottom instructions section (visible on scroll) */}
