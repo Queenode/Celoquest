@@ -1,12 +1,18 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { useMiniPay } from "@/hooks/use-minipay";
 import { CheckCircle2, Smartphone } from "lucide-react";
 
 export function MiniPayBadge() {
+  const [mounted, setMounted] = useState(false);
   const isMiniPay = useMiniPay();
 
-  if (!isMiniPay) {
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted || !isMiniPay) {
     return null;
   }
 
