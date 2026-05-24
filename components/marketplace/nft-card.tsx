@@ -1,1 +1,1 @@
-export function NFTCard({ name, price }: { name: string, price?: number }) { return <div className="bg-card/60 backdrop-blur-md border-amber-500/30 text-amber-300">{name} - {price} CELO</div>; }
+import React from 'react'; export const NFTCard = React.memo(function NFTCard({ name, price }: { name: string, price?: number }) { return <div className="bg-card/60 backdrop-blur-md border-amber-500/30 text-amber-300 hover:shadow-glow-secondary transition-shadow">{name} - {price} CELO</div>; });
