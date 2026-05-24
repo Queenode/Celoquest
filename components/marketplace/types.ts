@@ -1,0 +1,1 @@
+export interface NFTItem { id: string; name: string; price: number; rarity: 'Common' | 'Rare' | 'Epic' | 'Legendary'; }
