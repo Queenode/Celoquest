@@ -1,0 +1,1 @@
+export function MarketplaceHeader() { return <h1 className="font-[family-name:var(--font-cinzel-decorative)] text-glow-cyan">Marketplace</h1>; }
