@@ -1,0 +1,1 @@
+export function StatsBar() { return <div className="flex justify-between text-amber-300"><span>Floor: 10 CELO</span></div>; }
