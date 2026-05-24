@@ -1,1 +1,1 @@
-export const MOCK_PLAYERS = [{ id: '1', name: 'Thorin', xp: 5000, rank: 1, questsCompleted: 20 }];
+export const MOCK_PLAYERS = [{ id: '1', name: 'Thorin', xp: 5000, rank: 1, questsCompleted: 20 }, { id: '2', name: 'Gandalf', xp: 4000, rank: 2, questsCompleted: 15 }];
