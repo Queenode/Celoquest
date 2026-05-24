@@ -1,0 +1,1 @@
+export function LeaderboardFooter() { return <footer className="text-stone-300 text-center">Start Questing</footer>; }
