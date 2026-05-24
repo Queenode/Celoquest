@@ -1,1 +1,1 @@
-export const MOCK_NFTS = [{ id: '1', name: 'Sword of Truth', price: 100, rarity: 'Legendary' }];
+export const MOCK_NFTS = [{ id: '1', name: 'Sword of Truth', price: 100, rarity: 'Legendary' }, { id: '2', name: 'Shield of Valor', price: 50, rarity: 'Epic' }];
