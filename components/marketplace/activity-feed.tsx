@@ -1,0 +1,1 @@
+export function ActivityFeed() { return <div className="text-stone-400">Recent Trades...</div>; }
