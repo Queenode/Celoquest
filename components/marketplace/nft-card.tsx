@@ -1,0 +1,1 @@
+export function NFTCard({ name }: { name: string }) { return <div className="bg-card/60 backdrop-blur-md border-amber-500/30 text-amber-300">{name}</div>; }
