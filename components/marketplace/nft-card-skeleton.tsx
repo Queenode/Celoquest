@@ -1,0 +1,1 @@
+export function NFTCardSkeleton() { return <div className="bg-stone-dark animate-pulse h-40 w-full rounded"></div>; }
