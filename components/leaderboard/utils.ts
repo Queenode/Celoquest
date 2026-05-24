@@ -1,0 +1,1 @@
+export function formatXP(xp: number) { return xp.toLocaleString(); }
