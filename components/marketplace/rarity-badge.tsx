@@ -1,0 +1,1 @@
+export function RarityBadge({ rarity }: { rarity: string }) { return <span className="text-glow-cyan border-cyan-500/30 border px-2 py-1 rounded">{rarity}</span>; }
