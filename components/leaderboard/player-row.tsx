@@ -1,1 +1,1 @@
-export function PlayerRow({ name, xp }: { name: string, xp?: number }) { return <div className="bg-stone-900/70 text-amber-300">{name} - {xp}</div>; }
+import React from 'react'; export const PlayerRow = React.memo(function PlayerRow({ name, xp }: { name: string, xp?: number }) { return <div className="bg-stone-900/70 text-amber-300">{name} - {xp}</div>; });
