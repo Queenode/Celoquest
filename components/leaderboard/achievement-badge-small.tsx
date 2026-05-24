@@ -1,0 +1,1 @@
+export function AchievementBadgeSmall({ name }: { name: string }) { return <span className="text-glow-cyan text-xs">{name}</span>; }
