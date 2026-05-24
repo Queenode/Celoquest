@@ -1,1 +1,1 @@
-export function PlayerRow({ name }: { name: string }) { return <div className="bg-stone-900/70 text-amber-300">{name}</div>; }
+export function PlayerRow({ name, xp }: { name: string, xp?: number }) { return <div className="bg-stone-900/70 text-amber-300">{name} - {xp}</div>; }
