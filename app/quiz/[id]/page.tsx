@@ -14,7 +14,7 @@ export default async function QuizPage({ params }: QuizPageProps) {
     notFound()
   }
 
-  return <QuizRoom questions={quiz} questId={id} />
+  return <QuizRoom questions={quiz} questId={id} questType="ethereum" />
 }
 
 export async function generateStaticParams() {
