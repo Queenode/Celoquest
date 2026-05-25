@@ -1,6 +1,5 @@
 import Link from "next/link"
 import { GameButton } from "@/components/game-button"
-import { Volume2, Settings } from "lucide-react"
 import { MiniPayBadge } from "@/components/minipay-badge"
 import { FogOverlay } from "@/components/fog-overlay"
 import { AnimatedParticles } from "@/components/animated-particles"
@@ -21,16 +20,6 @@ export default function LandingPage() {
 
       {/* Particles/stars */}
       <AnimatedParticles />
-
-      {/* Top controls */}
-      <div className="absolute top-6 right-6 flex gap-4 z-20">
-        <button className="w-10 h-10 rounded-full bg-secondary/50 backdrop-blur-sm flex items-center justify-center text-foreground/70 hover:text-foreground hover:bg-secondary transition-all hover:scale-110 shadow-lg">
-          <Volume2 className="w-5 h-5" />
-        </button>
-        <button className="w-10 h-10 rounded-full bg-secondary/50 backdrop-blur-sm flex items-center justify-center text-foreground/70 hover:text-foreground hover:bg-secondary transition-all hover:scale-110 shadow-lg">
-          <Settings className="w-5 h-5" />
-        </button>
-      </div>
 
       {/* Main content */}
       <div className="relative z-10 flex flex-col items-center justify-center min-h-[100dvh] px-6 lg:px-8">
