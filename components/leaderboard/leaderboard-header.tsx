@@ -8,7 +8,7 @@ export function LeaderboardHeader() {
       <div className="flex justify-center mb-4">
         <Crown className="w-16 h-16 text-glow-amber animate-glow-pulse" />
       </div>
-      <h1 className="font-(family-name:--font-cinzel-decorative) text-4xl md:text-6xl font-black text-glow-amber mb-4 text-glow-md">
+      <h1 className="font-(family-name:--font-cinzel-decorative) text-4xl md:text-6xl font-black text-glow-amber mb-4 text-glow-sm">
         Hall of Champions
       </h1>
       <p className="font-(family-name:--font-cinzel) text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
