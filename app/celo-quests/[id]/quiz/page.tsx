@@ -14,7 +14,7 @@ export default async function CeloQuizPage({ params }: CeloQuizPageProps) {
     notFound()
   }
 
-  return <QuizRoom questions={quiz} questId={id} />
+  return <QuizRoom questions={quiz} questId={id} questType="celo" />
 }
 
 export async function generateStaticParams() {
