@@ -1,7 +1,7 @@
 'use client';
 
 import { useAccount, useConnect, useDisconnect, useSwitchChain } from 'wagmi';
-import { Button } from './ui/button';
+import { GameButton } from './game-button';
 import { useState, useEffect } from 'react';
 import { CELO_NETWORK } from '@/constants/contracts';
 
@@ -32,50 +32,49 @@ export function WalletConnectButton() {
   // Don't render during SSR
   if (!mounted) {
     return (
-      <Button disabled className="bg-blue-600 text-white">
+      <GameButton variant="secondary" disabled>
         Loading...
-      </Button>
+      </GameButton>
     );
   }
 
   if (isConnected && !needsNetworkSwitch) {
     return (
-      <div className="flex items-center gap-2">
-        <span className="text-sm font-medium">
+      <div className="flex items-center gap-4 bg-stone-900/50 p-1.5 pr-2 rounded-xl border border-glow-amber/20 backdrop-blur-sm">
+        <span className="text-sm font-bold text-glow-cyan font-[family-name:var(--font-cinzel)] tracking-wider pl-3">
           {`${address?.slice(0, 6)}...${address?.slice(-4)}`}
         </span>
-        <Button variant="outline" onClick={() => disconnect()}>
+        <GameButton variant="secondary" size="sm" onClick={() => disconnect()}>
           Disconnect
-        </Button>
+        </GameButton>
       </div>
     );
   }
 
   if (isConnected && needsNetworkSwitch) {
     return (
-      <div className="flex items-center gap-2">
-        <span className="text-sm text-yellow-500">Wrong Network</span>
-        <Button 
+      <div className="flex items-center gap-3 bg-stone-900/50 p-2 rounded-xl border border-red-500/30 backdrop-blur-sm">
+        <span className="text-sm text-red-400 font-[family-name:var(--font-cinzel)] font-bold animate-pulse">Wrong Realm</span>
+        <GameButton 
           onClick={() => switchChain({ chainId: CELO_NETWORK.id })}
-          className="bg-emerald-600 hover:bg-emerald-700 text-white"
+          size="sm"
         >
-          Switch to Celo
-        </Button>
-        <Button variant="outline" onClick={() => disconnect()}>
-          Disconnect
-        </Button>
+          Enter Celo
+        </GameButton>
+        <GameButton variant="secondary" size="sm" onClick={() => disconnect()}>
+          Flee
+        </GameButton>
       </div>
     );
   }
 
   if (!showConnectors) {
     return (
-      <Button
+      <GameButton
         onClick={() => setShowConnectors(true)}
-        className="bg-blue-600 hover:bg-blue-700 text-white"
       >
         Connect Wallet
-      </Button>
+      </GameButton>
     );
   }
 
@@ -133,43 +132,42 @@ export function WalletConnectButton() {
         onClick={() => setShowConnectors(false)}
       />
       
-      <div className="absolute right-0 top-full mt-2 z-50 bg-gray-900 border border-gray-700 rounded-lg shadow-xl p-4 min-w-60">
-        <div className="flex flex-col gap-2">
-          <h3 className="text-sm font-semibold text-white mb-2">Connect Wallet</h3>
+      <div className="absolute right-0 top-full mt-2 z-50 bg-stone-900 border-2 border-glow-amber/40 rounded-xl shadow-glow-secondary p-4 min-w-60 holographic glass-card">
+        <div className="flex flex-col gap-3">
+          <h3 className="text-sm font-[family-name:var(--font-cinzel)] font-bold text-glow-amber mb-1 uppercase tracking-wider border-b border-glow-amber/20 pb-2">Choose Gateway</h3>
           
           {uniqueConnectors.map((connector) => {
             const displayName = getConnectorName(connector);
             
             return (
-              <Button
+              <GameButton
                 key={connector.uid}
                 onClick={() => {
                   connect({ connector });
                   setShowConnectors(false);
                 }}
                 disabled={isPending}
-                variant="outline"
-                className="w-full justify-start bg-gray-800 hover:bg-gray-700 text-white border-gray-600"
+                variant="secondary"
+                size="sm"
+                className="w-full text-left justify-start font-[family-name:var(--font-cinzel)]"
               >
-                {isPending ? 'Connecting...' : displayName}
-              </Button>
+                {isPending ? 'Summoning...' : displayName}
+              </GameButton>
             );
           })}
           
           {error && (
-            <p className="text-sm text-red-400 mt-1">
+            <p className="text-sm text-red-400 mt-1 font-[family-name:var(--font-cinzel)]">
               {error.message}
             </p>
           )}
           
-          <Button
+          <button
             onClick={() => setShowConnectors(false)}
-            variant="ghost"
-            size="sm"
-            className="mt-2 text-gray-400 hover:text-white"
+            className="mt-2 text-stone-400 hover:text-glow-amber transition-colors text-sm font-[family-name:var(--font-cinzel)] uppercase tracking-wider"
           >
             Cancel
-          </Button>
+          </button>
         </div>
       </div>
     </div>
