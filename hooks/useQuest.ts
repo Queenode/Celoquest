@@ -30,11 +30,27 @@ export function useQuestCompletion() {
       setIsSubmitting(true);
       setMessage('Submitting quest progress...');
       
-      // For now, we'll use dummy values for the signature-related params
-      // In a production app, these would come from your backend
-      const nonce = Date.now(); // Simple nonce based on timestamp
-      const expiry = Math.floor(Date.now() / 1000) + 3600; // 1 hour from now
-      const signature = '0x'; // Empty signature for now
+      // Fetch the signature from our backend
+      const response = await fetch('/api/sign-progress', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          user: address,
+          questType: params.questType,
+          questId: params.questId,
+          quizScore: params.quizScore,
+          timeTaken: params.timeTaken,
+          xp: params.xp,
+        }),
+      });
+
+      const data = await response.json();
+      
+      if (!response.ok) {
+        throw new Error(data.error || 'Failed to get signature from server');
+      }
+
+      const { signature, nonce, expiry } = data;
       
       await writeContract({
         address: CONTRACT_ADDRESSES.CELO.GAME_CORE,
@@ -56,6 +72,7 @@ export function useQuestCompletion() {
     } catch (err: any) {
       console.error('Error claiming progress:', err);
       setMessage(err?.message || 'Failed to claim quest progress');
+      throw err; // Re-throw so the caller can catch it
     } finally {
       setIsSubmitting(false);
     }

@@ -5,8 +5,12 @@ import { QuizCard } from "./quiz-card"
 import { ProgressBar } from "./progress-bar"
 import { GameButton } from "./game-button"
 import { useRouter } from "next/navigation"
-import { Flame, AlertCircle, CheckCircle } from "lucide-react"
+import { Flame, AlertCircle, CheckCircle, Loader2 } from "lucide-react"
 import { useSound } from "./audio-player"
+import { useAccount } from "wagmi"
+import { useQuestCompletion } from "@/hooks/useQuest"
+import { WalletConnectButton } from "./WalletConnectButton"
+import { useEffect } from "react"
 
 interface Question {
   question: string
@@ -26,6 +30,9 @@ export function QuizRoom({ questions, questId, questType }: QuizRoomProps) {
   const [showResults, setShowResults] = useState(false)
   const router = useRouter()
   const { playSound } = useSound()
+  
+  const { isConnected } = useAccount()
+  const { claimProgress, isSubmitting, isConfirming, isConfirmed, message, error } = useQuestCompletion()
 
   const handleAnswer = (answerIndex: number) => {
     const newAnswers = [...answers]
@@ -73,25 +80,47 @@ export function QuizRoom({ questions, questId, questType }: QuizRoomProps) {
     playSound("click")
   }
 
-  const handleVictory = () => {
-    const storageKey = questType === "celo" ? "celoQuestProgress" : "ethereumQuestProgress"
-    const savedProgress = localStorage.getItem(storageKey)
-    const progress = savedProgress ? JSON.parse(savedProgress) : {}
-
-    progress[questId] = "completed"
-
-    const nextQuestId = String(Number(questId) + 1)
-    if (Number(nextQuestId) <= 10) {
-      progress[nextQuestId] = "unlocked"
+  const handleVictory = async () => {
+    if (!isConnected) {
+      alert("Please connect your wallet above to claim your on-chain rewards!");
+      return;
     }
 
-    localStorage.setItem(storageKey, JSON.stringify(progress))
-
-    playSound("unlock")
-    setTimeout(() => {
-      router.push(`/victory/${questId}`)
-    }, 500)
+    try {
+      await claimProgress({
+        questType: questType === "celo" ? 1 : 0,
+        questId: Number(questId),
+        quizScore: score * 10, // Convert 7/10 to 70%
+        timeTaken: 120, // Hardcoded time for now
+        xp: 100, // Base XP reward
+      });
+    } catch (err) {
+      console.error("Failed to claim:", err);
+    }
   }
+
+  // Listen for successful confirmation to update local UI state and redirect
+  useEffect(() => {
+    if (isConfirmed) {
+      const storageKey = questType === "celo" ? "celoQuestProgress" : "ethereumQuestProgress"
+      const savedProgress = localStorage.getItem(storageKey)
+      const progress = savedProgress ? JSON.parse(savedProgress) : {}
+
+      progress[questId] = "completed"
+
+      const nextQuestId = String(Number(questId) + 1)
+      if (Number(nextQuestId) <= 10) {
+        progress[nextQuestId] = "unlocked"
+      }
+
+      localStorage.setItem(storageKey, JSON.stringify(progress))
+
+      playSound("unlock")
+      setTimeout(() => {
+        router.push(`/victory/${questId}`)
+      }, 500)
+    }
+  }, [isConfirmed, questId, questType, router, playSound])
 
   if (showResults) {
     return (
@@ -154,11 +183,38 @@ export function QuizRoom({ questions, questId, questType }: QuizRoomProps) {
               </p>
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               {passed ? (
-                <GameButton size="lg" onClick={handleVictory}>
-                  Continue Quest
-                </GameButton>
+                <div className="flex flex-col items-center gap-4">
+                  {!isConnected && (
+                    <div className="flex flex-col items-center gap-2 mb-4 p-4 bg-stone-900/50 rounded-lg border border-glow-amber/30">
+                      <p className="text-glow-amber text-sm text-center">Connect your wallet to claim XP and NFTs!</p>
+                      <WalletConnectButton />
+                    </div>
+                  )}
+                  
+                  <GameButton 
+                    size="lg" 
+                    onClick={handleVictory} 
+                    disabled={isSubmitting || isConfirming || !isConnected}
+                  >
+                    {(isSubmitting || isConfirming) ? (
+                      <span className="flex items-center gap-2">
+                        <Loader2 className="w-5 h-5 animate-spin" />
+                        Minting on Chain...
+                      </span>
+                    ) : (
+                      "Claim Rewards & Continue"
+                    )}
+                  </GameButton>
+                  
+                  {message && (
+                    <p className="text-glow-cyan text-sm mt-2 animate-pulse">{message}</p>
+                  )}
+                  {error && (
+                    <p className="text-red-500 text-sm mt-2 max-w-xs">{error.message || "Transaction failed"}</p>
+                  )}
+                </div>
               ) : (
                 <>
                   <GameButton size="lg" onClick={handleRetry}>
