@@ -17,9 +17,10 @@ interface Question {
 interface QuizRoomProps {
   questions: Question[]
   questId: string
+  questType: "ethereum" | "celo"
 }
 
-export function QuizRoom({ questions, questId }: QuizRoomProps) {
+export function QuizRoom({ questions, questId, questType }: QuizRoomProps) {
   const [currentQuestion, setCurrentQuestion] = useState(0)
   const [answers, setAnswers] = useState<number[]>(new Array(questions.length).fill(-1))
   const [showResults, setShowResults] = useState(false)
@@ -73,17 +74,18 @@ export function QuizRoom({ questions, questId }: QuizRoomProps) {
   }
 
   const handleVictory = () => {
-    const savedProgress = localStorage.getItem("ethereumQuestProgress")
+    const storageKey = questType === "celo" ? "celoQuestProgress" : "ethereumQuestProgress"
+    const savedProgress = localStorage.getItem(storageKey)
     const progress = savedProgress ? JSON.parse(savedProgress) : {}
 
     progress[questId] = "completed"
 
     const nextQuestId = String(Number(questId) + 1)
-    if (nextQuestId <= "3") {
+    if (Number(nextQuestId) <= 10) {
       progress[nextQuestId] = "unlocked"
     }
 
-    localStorage.setItem("ethereumQuestProgress", JSON.stringify(progress))
+    localStorage.setItem(storageKey, JSON.stringify(progress))
 
     playSound("unlock")
     setTimeout(() => {
