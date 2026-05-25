@@ -1,1 +1,10 @@
-export interface PlayerStats { id: string; name: string; xp: number; rank: number; questsCompleted: number; }
+export interface PlayerStats {
+  id: string;
+  rank: number;
+  name: string;
+  address: string;
+  questsCompleted: number;
+  totalXp: number;
+  avatarUrl: string;
+  isCurrentUser?: boolean;
+}
