@@ -242,7 +242,7 @@ export default function CeloQuestsPage() {
                           )}
                         </h2>
                         <p className="font-(family-name:--font-cinzel) text-sm md:text-base text-muted-foreground">
-                          {isLocked ? "Complete the previous quest to unlock" : quest.description}
+                          {quest.description}
                         </p>
                       </div>
 
