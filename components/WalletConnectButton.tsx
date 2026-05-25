@@ -170,4 +170,8 @@ export function WalletConnectButton() {
           >
             Cancel
           </button>
+        </div>
+      </div>
+    </div>
+  );
 }
