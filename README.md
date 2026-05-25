@@ -2,6 +2,112 @@
 
 CeloQuest is a decentralized application (dApp) built on the Celo blockchain that enables users to participate in quests, complete tasks, and earn rewards. The platform combines the power of Next.js, Wagmi, Viem, and smart contracts to create an engaging Web3 experience.
 
+## 🎮 How a Round Works — Full Game Flow
+
+Here is exactly what happens from the moment a player opens CeloQuest to the moment their progress is permanently recorded on the Celo blockchain.
+
+---
+
+### Step 1 — Land on the Temple Gate (`/`)
+The player arrives at the animated landing screen — a dark mystical temple backdrop with glowing particles. They read the intro and click **"Start Adventure"** to begin their journey.
+
+---
+
+### Step 2 — Choose Your Path (`/path-selection`)
+The player is presented with two learning tracks to specialise in:
+
+| Path | Description |
+|------|-------------|
+| 🔥 **Celo Quests** | Learn about the Celo blockchain — its mission, DeFi ecosystem, stablecoins, and consensus mechanism |
+| ⚡ **Ethereum Quests** | Learn about Ethereum fundamentals — the EVM, smart contracts, gas, and Layer 2 scaling |
+
+They pick one and are taken to the quest map for that path.
+
+---
+
+### Step 3 — Navigate the Quest Map (`/celo-quests` or `/ethereum-quests`)
+A visual map displays up to **10 numbered quest nodes**. Each node is either:
+- 🔓 **Unlocked** — available to play
+- 🔒 **Locked** — requires completing the previous quest first
+- ✅ **Completed** — already cleared and recorded on-chain
+
+The player clicks an unlocked quest node to enter it.
+
+---
+
+### Step 4 — Read the Scroll (Quest Introduction Page)
+Before the quiz begins, the player reads a short educational scroll — a rich text page explaining the topic they are about to be tested on. This teaches them the core concept (e.g. "What is CELO staking?" or "How does gas pricing work?").
+
+---
+
+### Step 5 — Enter the Quiz Room (`/quest/[type]/[id]/quiz`)
+The player enters the quiz arena. This consists of:
+- **10 multiple-choice questions** on the topic they just read
+- A **progress bar** at the top showing question X of 10
+- **Previous / Next / Submit** navigation buttons
+- They must answer all 10 questions before submitting
+
+---
+
+### Step 6 — Results Screen
+After submitting, the player sees their **score out of 10**:
+
+| Score | Outcome |
+|-------|---------|
+| 7 / 10 or above | ✅ **Victory** — quest is passed |
+| Below 7 / 10 | ❌ **Quest Failed** — they can retry immediately |
+
+If they fail, they click **"Retry Quiz"** and start the 10 questions again from scratch.
+
+---
+
+### Step 7 — Connect Wallet & Claim On-Chain Rewards
+If the player **passes**, the Victory screen appears. To claim their rewards they **must connect their Celo wallet** (MetaMask, Coinbase Wallet, or any injected wallet). The flow is:
+
+1. Player clicks **"Connect Wallet"** — a compact, chamfered gaming-style selector appears
+2. They choose their wallet and approve the connection
+3. If they are on the wrong network, they are prompted to **switch to Celo**
+4. They click **"Claim Rewards & Continue"**
+
+---
+
+### Step 8 — Secure Signature (EIP-712)
+When the player clicks Claim, the frontend makes a call to the **`/api/sign-progress`** server-side API route. This route:
+- Receives their wallet address and quiz result (score, time taken, XP amount)
+- Verifies the data is legitimate
+- Signs a structured **EIP-712 voucher** with the platform's private key
+- Returns a cryptographic signature back to the frontend
+
+This prevents anyone from forging their own claims — only scores signed by the platform are accepted by the smart contract.
+
+---
+
+### Step 9 — On-Chain Transaction (`GameCore.sol`)
+The frontend takes the signed voucher and calls **`claimProgress()`** on the `GameCore` smart contract deployed on Celo Mainnet. The player signs and pays the small CELO gas fee in their wallet. The contract:
+- Verifies the EIP-712 signature against the platform's signer address
+- Checks the nonce has not been used before (replay protection)
+- Mints **XP tokens** to the player's wallet via `XPToken.sol`
+- Mints a **Chapter NFT** commemorating the completed quest via `ChapterNFT.sol`
+- Emits a `ProgressClaimed` event on-chain
+
+---
+
+### Step 10 — Victory & Unlock Next Quest
+Once the transaction is confirmed on-chain:
+- The current quest is marked ✅ **Completed** on the map
+- The **next quest node** is unlocked 🔓
+- The player is redirected to the **Victory screen** (`/victory/[id]`) with a celebration animation
+- Their wallet now holds the XP tokens and the Chapter NFT as proof of completion
+
+---
+
+### Step 11 — Repeat
+The player returns to the quest map and repeats Steps 3–10 for each subsequent quest until all 10 are completed. Each completed quest permanently lives on the Celo blockchain as an NFT collectible.
+
+---
+
+> **Note**: The Leaderboard (`/leaderboard`) and Marketplace (`/marketplace`) pages are coming soon and will allow players to compare XP rankings globally and trade their Chapter NFTs.
+
 ## 🌟 Features
 
 - **Web3 Integration**: Seamless wallet connection with Wagmi and Viem
