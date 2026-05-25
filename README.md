@@ -6,20 +6,23 @@ CeloQuest is a decentralized application (dApp) built on the Celo blockchain tha
 
 - **Web3 Integration**: Seamless wallet connection with Wagmi and Viem
 - **Smart Contract Interaction**: Interact with Celo smart contracts securely
-- **Responsive UI**: Built with modern React and Tailwind CSS
+- **EIP-712 Secure Vouchers**: Advanced off-chain signature generation via API to prevent cheating and secure on-chain minting
+- **Opera MiniPay Ready**: 100% mobile-responsive design, optimized for embedded browser wallets like MiniPay
+- **Responsive UI**: Built with modern React, Tailwind CSS, and a custom RPG aesthetic (Cinzel fonts, glowing elements)
 - **Type Safety**: Full TypeScript support for better developer experience
 - **DeFi Ready**: Integration with Celo and other EVM-compatible chains
 
 ## 🛠 Tech Stack
 
 - **Frontend**: Next.js 14 with React 19
-- **Styling**: Tailwind CSS with shadcn/ui components
+- **Styling**: Tailwind CSS with custom RPG theme (Cinzel font, ambient glowing borders, glassmorphism)
 - **State Management**: React Query for server state management
 - **Blockchain**:
   - Wagmi v3 for wallet connections
-  - Viem for Celo interaction
+  - Viem for Celo interaction and EIP-712 typing
   - Smart contracts written in Solidity
-- **Animation**: Framer Motion for smooth animations
+- **Backend/API**: Next.js App Router API for secure voucher signing
+- **Animation**: Framer Motion & pure CSS for smooth animations
 - **Icons**: Lucide React for beautiful icons
 
 ## 📦 Prerequisites
