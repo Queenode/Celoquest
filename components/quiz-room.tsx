@@ -44,14 +44,14 @@ export function QuizRoom({ questions, questId, questType }: QuizRoomProps) {
   const handleNext = () => {
     if (currentQuestion < questions.length - 1) {
       setCurrentQuestion(currentQuestion + 1)
-      playSound("click")
+      playSound('whoosh')
     }
   }
 
   const handlePrevious = () => {
     if (currentQuestion > 0) {
       setCurrentQuestion(currentQuestion - 1)
-      playSound("click")
+      playSound('whoosh')
     }
   }
 
