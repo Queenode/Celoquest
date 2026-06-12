@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react"
 import Link from "next/link"
 import { useRouter } from "next/navigation"
+import { useSound } from "@/components/audio-player"
 import { 
   Lock, 
   CheckCircle2, 
@@ -30,6 +31,7 @@ export default function CeloQuestsPage() {
   const [progress, setProgress] = useState<QuestProgress>({})
   const [hoveredQuest, setHoveredQuest] = useState<string | null>(null)
   const [isLoading, setIsLoading] = useState(true)
+  const { playSound } = useSound()
 
   useEffect(() => {
     const savedProgress = localStorage.getItem("celoQuestProgress")
@@ -50,6 +52,11 @@ export default function CeloQuestsPage() {
     const status = progress[questId]
     if (status === "locked") {
       return
+    }
+    if (status === "completed") {
+      playSound('click')
+    } else {
+      playSound('collect')
     }
     router.push(`/celo-quests/${questId}`)
   }
