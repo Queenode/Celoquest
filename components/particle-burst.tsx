@@ -27,8 +27,8 @@ export function ParticleBurst({ active }: { active: boolean }) {
           style={{
             left: '50%', top: '50%',
             animation: `particle-${i % 4} 0.8s ease-out forwards`,
-            transform: `rotate(${p.angle}deg)`,
-          }}
+            '--angle': `${p.angle}deg`,
+          } as any}
         />
       ))}
     </div>
