@@ -1,5 +1,6 @@
 import { PortalAnimation } from "@/components/portal-animation"
 import { GameButton } from "@/components/game-button"
+import { VictorySound } from "@/components/victory-sound"
 import Link from "next/link"
 import { Trophy, Sparkles } from "lucide-react"
 
@@ -38,6 +39,7 @@ export default async function VictoryPage({ params }: VictoryPageProps) {
 
       {/* Content */}
       <div className="relative z-10 text-center px-4 max-w-2xl">
+        <VictorySound />
       
         {/* Victory text */}
         <h1 className="font-[family-name:var(--font-cinzel-decorative)] text-5xl md:text-7xl font-black text-glow-amber text-glow mb-6">
