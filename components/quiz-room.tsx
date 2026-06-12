@@ -10,6 +10,7 @@ import { useSound } from "./audio-player"
 import { useAccount } from "wagmi"
 import { useQuestCompletion } from "@/hooks/useQuest"
 import { WalletConnectButton } from "./WalletConnectButton"
+import { CompletionBadge } from "./completion-badge"
 import { useEffect } from "react"
 import { cn } from "@/lib/utils"
 
@@ -167,6 +168,8 @@ export function QuizRoom({ questions, questId, questType }: QuizRoomProps) {
           <div className="absolute inset-0 bg-[url('/dark-mystical-cave-glowing.jpg')] bg-cover bg-center" />
         </div>
         <div className="absolute inset-0 bg-linear-to-b from-background/80 via-background/60 to-background/80" />
+
+        <CompletionBadge show={passed} />
 
         {/* Results card */}
         <div className="relative z-10 max-w-2xl mx-auto px-4">
