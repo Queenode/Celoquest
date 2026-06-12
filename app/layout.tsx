@@ -55,7 +55,7 @@ export default function RootLayout({
         <Web3Provider>
           <div className="min-h-screen flex flex-col">
             <Header />
-            <main className="flex-1">
+            <main className="flex-1 animate-page-fade-in">
               {children}
             </main>
           </div>

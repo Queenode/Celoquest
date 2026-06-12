@@ -322,7 +322,7 @@ export function QuizRoom({ questions, questId, questType }: QuizRoomProps) {
       {/* Elapsed Time Counter */}
       <div className="absolute top-8 right-4 md:right-8 z-20 flex items-center gap-2 bg-stone-900/80 px-3 py-2 rounded-lg border border-amber-500/30 backdrop-blur-sm shadow-lg">
         <Clock className="w-4 h-4 text-amber-500 animate-pulse" />
-        <span className="font-mono text-amber-400 font-bold tracking-wider">
+        <span suppressHydrationWarning className="font-mono text-amber-400 font-bold tracking-wider">
           {Math.floor(elapsedTime / 60)}:{(elapsedTime % 60).toString().padStart(2, '0')}
         </span>
       </div>
