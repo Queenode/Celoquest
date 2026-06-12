@@ -39,6 +39,8 @@ export const GameButton = forwardRef<HTMLButtonElement, GameButtonProps>(
             "bg-secondary/10 border-2 border-secondary/50 backdrop-blur-md",
             "text-secondary",
             "hover:bg-secondary/20 hover:border-secondary transition-all",
+            "before:absolute before:inset-0 before:bg-gradient-to-r before:from-transparent before:via-white/10 before:to-transparent",
+            "before:-translate-x-full hover:before:translate-x-full before:transition-transform before:duration-700",
           ],
           size === "sm" && "px-4 py-2 text-sm rounded-md",
           size === "md" && "px-6 py-3 text-base rounded-lg",
