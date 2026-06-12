@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { WalletConnectButton } from './WalletConnectButton';
+import { SoundToggle } from './sound-toggle';
 import { cn } from '@/lib/utils';
 import { Menu, X } from 'lucide-react';
 import { useState } from 'react';
@@ -64,6 +65,7 @@ export function Header() {
         </div>
         
         <div className="flex items-center gap-2">
+          <SoundToggle />
           <WalletConnectButton />
         </div>
       </div>
