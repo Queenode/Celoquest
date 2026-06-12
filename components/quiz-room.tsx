@@ -268,10 +268,12 @@ export function QuizRoom({ questions, questId, questType }: QuizRoomProps) {
       {/* Torches */}
       <div className="absolute top-10 left-10 md:left-20">
         <Flame className="w-10 h-10 md:w-14 md:h-14 text-glow-amber animate-flicker" />
+        <Flame className="absolute top-0 left-0 w-10 h-10 md:w-14 md:h-14 text-amber-500 animate-flicker mix-blend-screen opacity-70" style={{ animationDelay: '150ms', animationDuration: '2.5s' }} />
         <div className="absolute inset-0 blur-xl bg-glow-amber/50 animate-glow-pulse" />
       </div>
       <div className="absolute top-10 right-10 md:right-20">
-        <Flame className="w-10 h-10 md:w-14 md:h-14 text-glow-amber animate-flicker" />
+        <Flame className="w-10 h-10 md:w-14 md:h-14 text-glow-amber animate-flicker" style={{ animationDelay: '100ms' }} />
+        <Flame className="absolute top-0 left-0 w-10 h-10 md:w-14 md:h-14 text-amber-500 animate-flicker mix-blend-screen opacity-70" style={{ animationDelay: '250ms', animationDuration: '2.3s' }} />
         <div className="absolute inset-0 blur-xl bg-glow-amber/50 animate-glow-pulse" />
       </div>
 
