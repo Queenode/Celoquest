@@ -4,10 +4,12 @@ import { MiniPayBadge } from "@/components/minipay-badge"
 import { FogOverlay } from "@/components/fog-overlay"
 import { AnimatedParticles } from "@/components/animated-particles"
 import { ScrollIndicator } from "@/components/scroll-indicator"
+import { LandingSound } from "@/components/landing-sound"
 
 export default function LandingPage() {
   return (
     <div className="relative min-h-screen overflow-hidden bg-stone-dark flex flex-col justify-between">
+      <LandingSound />
       <MiniPayBadge />
       
       {/* Animated background with stone texture */}
