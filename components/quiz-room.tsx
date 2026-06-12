@@ -11,6 +11,7 @@ import { useAccount } from "wagmi"
 import { useQuestCompletion } from "@/hooks/useQuest"
 import { WalletConnectButton } from "./WalletConnectButton"
 import { useEffect } from "react"
+import { cn } from "@/lib/utils"
 
 interface Question {
   question: string
@@ -28,6 +29,7 @@ export function QuizRoom({ questions, questId, questType }: QuizRoomProps) {
   const [currentQuestion, setCurrentQuestion] = useState(0)
   const [answers, setAnswers] = useState<number[]>(new Array(questions.length).fill(-1))
   const [showResults, setShowResults] = useState(false)
+  const [streak, setStreak] = useState(0)
   const router = useRouter()
   const { playSound } = useSound()
   
@@ -39,6 +41,12 @@ export function QuizRoom({ questions, questId, questType }: QuizRoomProps) {
     newAnswers[currentQuestion] = answerIndex
     setAnswers(newAnswers)
     playSound("click")
+
+    if (answerIndex === questions[currentQuestion].correctAnswer) {
+      setStreak(s => s + 1)
+    } else {
+      setStreak(0)
+    }
   }
 
   const handleNext = () => {
@@ -266,6 +274,20 @@ export function QuizRoom({ questions, questId, questType }: QuizRoomProps) {
         <ProgressBar current={currentQuestion + 1} total={questions.length} />
       </div>
 
+      {/* Streak badge */}
+      {streak > 0 && (
+        <div className="absolute top-24 left-1/2 -translate-x-1/2 z-20">
+          <div className={cn(
+            "px-4 py-1.5 rounded-full border border-amber-500/50 bg-stone-900/80 backdrop-blur-sm transition-all duration-300",
+            streak >= 3 ? "scale-110 shadow-glow-primary animate-glow-pulse" : "scale-100 shadow-md"
+          )}>
+            <span className="text-sm font-bold text-amber-400 font-[family-name:var(--font-cinzel)] uppercase tracking-wider">
+              Streak: {streak} 🔥
+            </span>
+          </div>
+        </div>
+      )}
+
       {/* Quiz content */}
       <div className="relative z-10 container mx-auto px-4 py-20 md:py-24 flex items-center justify-center min-h-screen">
         <div className="w-full max-w-3xl">
@@ -274,6 +296,7 @@ export function QuizRoom({ questions, questId, questType }: QuizRoomProps) {
             questionNumber={currentQuestion + 1}
             selectedAnswer={answers[currentQuestion]}
             onAnswer={handleAnswer}
+            revealed={answers[currentQuestion] !== -1}
           />
 
           {/* Navigation */}
