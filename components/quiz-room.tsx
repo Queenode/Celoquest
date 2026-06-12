@@ -11,6 +11,7 @@ import { useAccount } from "wagmi"
 import { useQuestCompletion } from "@/hooks/useQuest"
 import { WalletConnectButton } from "./WalletConnectButton"
 import { CompletionBadge } from "./completion-badge"
+import { VictoryConfetti } from "./victory-confetti"
 import { useEffect } from "react"
 import { cn } from "@/lib/utils"
 
@@ -169,6 +170,7 @@ export function QuizRoom({ questions, questId, questType }: QuizRoomProps) {
         </div>
         <div className="absolute inset-0 bg-linear-to-b from-background/80 via-background/60 to-background/80" />
 
+        <VictoryConfetti show={passed} />
         <CompletionBadge show={passed} />
 
         {/* Results card */}
