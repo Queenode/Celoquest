@@ -30,6 +30,7 @@ export function QuizRoom({ questions, questId, questType }: QuizRoomProps) {
   const [answers, setAnswers] = useState<number[]>(new Array(questions.length).fill(-1))
   const [showResults, setShowResults] = useState(false)
   const [streak, setStreak] = useState(0)
+  const [xpGainIndicators, setXpGainIndicators] = useState<{id: number, val: number}[]>([])
   const router = useRouter()
   const { playSound } = useSound()
   
@@ -44,6 +45,11 @@ export function QuizRoom({ questions, questId, questType }: QuizRoomProps) {
 
     if (answerIndex === questions[currentQuestion].correctAnswer) {
       setStreak(s => s + 1)
+      const id = Date.now()
+      setXpGainIndicators(prev => [...prev, { id, val: 10 }])
+      setTimeout(() => {
+        setXpGainIndicators(prev => prev.filter(x => x.id !== id))
+      }, 1000)
     } else {
       setStreak(0)
     }
@@ -272,6 +278,19 @@ export function QuizRoom({ questions, questId, questType }: QuizRoomProps) {
       {/* Progress bar */}
       <div className="absolute top-8 left-1/2 -translate-x-1/2 w-full max-w-2xl px-4 z-20">
         <ProgressBar current={currentQuestion + 1} total={questions.length} />
+        
+        {/* XP Gain Indicators */}
+        <div className="absolute top-8 left-1/2 -translate-x-1/2 pointer-events-none z-30">
+          {xpGainIndicators.map(indicator => (
+            <div 
+              key={indicator.id}
+              className="absolute -top-4 left-0 text-xl font-bold text-glow-amber animate-float-up opacity-0 whitespace-nowrap"
+              style={{ fontFamily: 'var(--font-cinzel-decorative)' }}
+            >
+              +{indicator.val} XP
+            </div>
+          ))}
+        </div>
       </div>
 
       {/* Streak badge */}
