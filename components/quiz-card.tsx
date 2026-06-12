@@ -39,9 +39,9 @@ export function QuizCard({ question, questionNumber, selectedAnswer, onAnswer, r
     }
     if (revealed) {
       if (index === question.correctAnswer) {
-        return "bg-cyan-500/20 border-cyan-400 text-foreground shadow-lg shadow-cyan-400/30 animate-glow-pulse"
+        return "bg-cyan-500/20 border-cyan-400 text-foreground shadow-lg shadow-cyan-400/30 animate-flash-correct"
       } else {
-        return "bg-red-900/20 border-red-400/60 text-foreground shadow-lg shadow-red-400/20"
+        return "bg-red-900/20 border-red-400/60 text-foreground shadow-lg shadow-red-400/20 animate-flash-wrong"
       }
     }
     return "bg-amber-500/20 border-amber-500 text-foreground shadow-lg shadow-amber-500/30 animate-glow-pulse"
