@@ -1,7 +1,8 @@
 'use client'
 import { Play, Pause, Square, BookOpen } from 'lucide-react'
 import { useTextToSpeech } from '@/hooks/useTextToSpeech'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
+import { GameTooltip } from './game-tooltip'
 
 interface ScrollReaderProps {
   title: string
@@ -63,24 +64,32 @@ export function ScrollReader({ title, content, analogy }: ScrollReaderProps) {
         </span>
         <div className="flex gap-2">
           {!isSpeaking && (
-            <button onClick={() => speak(fullText)} className={btnClass + ' text-glow-amber'}>
-              <Play className="w-4 h-4" />
-            </button>
+            <GameTooltip text="Read Aloud" position="top">
+              <button onClick={() => speak(fullText)} className={btnClass + ' text-glow-amber'}>
+                <Play className="w-4 h-4" />
+              </button>
+            </GameTooltip>
           )}
           {isSpeaking && !isPaused && (
-            <button onClick={pause} className={btnClass + ' text-glow-cyan'}>
-              <Pause className="w-4 h-4" />
-            </button>
+            <GameTooltip text="Pause" position="top">
+              <button onClick={pause} className={btnClass + ' text-glow-cyan'}>
+                <Pause className="w-4 h-4" />
+              </button>
+            </GameTooltip>
           )}
           {isSpeaking && isPaused && (
-            <button onClick={resume} className={btnClass + ' text-glow-amber'}>
-              <Play className="w-4 h-4" />
-            </button>
+            <GameTooltip text="Resume" position="top">
+              <button onClick={resume} className={btnClass + ' text-glow-amber'}>
+                <Play className="w-4 h-4" />
+              </button>
+            </GameTooltip>
           )}
           {isSpeaking && (
-            <button onClick={stop} className={btnClass + ' text-red-400 border-red-400/50 hover:border-red-400'}>
-              <Square className="w-4 h-4" />
-            </button>
+            <GameTooltip text="Stop" position="top">
+              <button onClick={stop} className={btnClass + ' text-red-400 border-red-400/50 hover:border-red-400'}>
+                <Square className="w-4 h-4" />
+              </button>
+            </GameTooltip>
           )}
         </div>
         {isSpeaking && !isPaused && (
