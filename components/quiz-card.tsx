@@ -48,7 +48,10 @@ export function QuizCard({ question, questionNumber, selectedAnswer, onAnswer, r
   }
 
   return (
-    <div className="bg-card/80 backdrop-blur-sm border-2 border-amber-500/30 rounded-lg p-6 md:p-8 shadow-2xl">
+    <div className={cn(
+      "bg-card/80 backdrop-blur-sm border-2 border-amber-500/30 rounded-lg p-6 md:p-8 shadow-2xl",
+      revealed && selectedAnswer !== -1 && selectedAnswer !== question.correctAnswer && "animate-shake"
+    )}>
       {/* Question number */}
       <div className="flex items-center gap-3 mb-6">
         <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-amber-500 to-amber-600 flex items-center justify-center shadow-lg shadow-amber-500/50">
