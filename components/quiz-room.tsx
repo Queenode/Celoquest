@@ -5,7 +5,7 @@ import { QuizCard } from "./quiz-card"
 import { ProgressBar } from "./progress-bar"
 import { GameButton } from "./game-button"
 import { useRouter } from "next/navigation"
-import { Flame, AlertCircle, CheckCircle, Loader2 } from "lucide-react"
+import { Flame, AlertCircle, CheckCircle, Loader2, Clock } from "lucide-react"
 import { useSound } from "./audio-player"
 import { useAccount } from "wagmi"
 import { useQuestCompletion } from "@/hooks/useQuest"
@@ -31,11 +31,23 @@ export function QuizRoom({ questions, questId, questType }: QuizRoomProps) {
   const [showResults, setShowResults] = useState(false)
   const [streak, setStreak] = useState(0)
   const [xpGainIndicators, setXpGainIndicators] = useState<{id: number, val: number}[]>([])
+  const [elapsedTime, setElapsedTime] = useState(0)
+  const [isTimerActive, setIsTimerActive] = useState(true)
   const router = useRouter()
   const { playSound } = useSound()
   
   const { isConnected } = useAccount()
   const { claimProgress, isSubmitting, isConfirming, isConfirmed, message, error } = useQuestCompletion()
+
+  useEffect(() => {
+    let interval: NodeJS.Timeout
+    if (isTimerActive && !showResults) {
+      interval = setInterval(() => {
+        setElapsedTime(prev => prev + 1)
+      }, 1000)
+    }
+    return () => clearInterval(interval)
+  }, [isTimerActive, showResults])
 
   const handleAnswer = (answerIndex: number) => {
     const newAnswers = [...answers]
@@ -296,18 +308,24 @@ export function QuizRoom({ questions, questId, questType }: QuizRoomProps) {
       </div>
 
       {/* Streak badge */}
-      {streak > 0 && (
-        <div className="absolute top-24 left-1/2 -translate-x-1/2 z-20">
-          <div className={cn(
-            "px-4 py-1.5 rounded-full border border-amber-500/50 bg-stone-900/80 backdrop-blur-sm transition-all duration-300",
-            streak >= 3 ? "scale-110 shadow-glow-primary animate-glow-pulse" : "scale-100 shadow-md"
-          )}>
-            <span className="text-sm font-bold text-amber-400 font-[family-name:var(--font-cinzel)] uppercase tracking-wider">
-              Streak: {streak} 🔥
-            </span>
-          </div>
+      <div className="absolute top-24 left-1/2 -translate-x-1/2 z-20">
+        <div className={cn(
+          "px-4 py-1 rounded-full border bg-stone-900/80 backdrop-blur-sm transition-all duration-300",
+          streak > 1 ? "border-amber-500 shadow-glow-primary scale-110 opacity-100" : "border-amber-500/30 opacity-0 scale-90"
+        )}>
+          <span className="font-bold text-amber-500 font-[family-name:var(--font-cinzel-decorative)]">
+            🔥 {streak} Streak!
+          </span>
         </div>
-      )}
+      </div>
+
+      {/* Elapsed Time Counter */}
+      <div className="absolute top-8 right-4 md:right-8 z-20 flex items-center gap-2 bg-stone-900/80 px-3 py-2 rounded-lg border border-amber-500/30 backdrop-blur-sm shadow-lg">
+        <Clock className="w-4 h-4 text-amber-500 animate-pulse" />
+        <span className="font-mono text-amber-400 font-bold tracking-wider">
+          {Math.floor(elapsedTime / 60)}:{(elapsedTime % 60).toString().padStart(2, '0')}
+        </span>
+      </div>
 
       {/* Quiz content */}
       <div className="relative z-10 container mx-auto px-4 py-20 md:py-24 flex items-center justify-center min-h-screen">
