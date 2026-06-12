@@ -1,5 +1,7 @@
+"use client"
 import { type ButtonHTMLAttributes, forwardRef } from "react"
 import { cn } from "@/lib/utils"
+import { useGameSound } from "@/hooks/useGameSound"
 
 interface GameButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   size?: "sm" | "md" | "lg"
@@ -7,10 +9,18 @@ interface GameButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 export const GameButton = forwardRef<HTMLButtonElement, GameButtonProps>(
-  ({ className, size = "md", variant = "primary", children, ...props }, ref) => {
+  ({ className, size = "md", variant = "primary", children, onClick, ...props }, ref) => {
+    const { playSound } = useGameSound()
+
+    const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+      playSound('click')
+      onClick?.(e)
+    }
+
     return (
       <button
         ref={ref}
+        onClick={handleClick}
         className={cn(
           "font-[family-name:var(--font-cinzel-decorative)] font-bold uppercase tracking-wider",
           "relative overflow-hidden transition-all duration-300",
