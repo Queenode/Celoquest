@@ -99,6 +99,17 @@ export function QuizRoom({ questions, questId, questType }: QuizRoomProps) {
     }
   }
 
+  // Play success or fail sound when results are shown
+  useEffect(() => {
+    if (showResults) {
+      const finalScore = calculateScore()
+      setTimeout(() => {
+        playSound(finalScore >= 7 ? 'success' : 'fail')
+      }, 300)
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [showResults])
+
   // Listen for successful confirmation to update local UI state and redirect
   useEffect(() => {
     if (isConfirmed) {
