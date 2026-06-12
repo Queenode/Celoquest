@@ -605,15 +605,19 @@ export default function QuestRoom({ questId, questType }: QuestRoomProps) {
       }
 
       // Update character
-      state.character!.position.set(state.playerPos.x, 0, state.playerPos.z);
+      if (state.character) {
+        state.character.position.set(state.playerPos.x, 0, state.playerPos.z);
+      }
 
       // Update camera to follow - HIGHER position
-      state.camera!.position.set(
-        state.playerPos.x,
-        45, // Higher up
-        state.playerPos.z + 30 // Further back
-      );
-      state.camera!.lookAt(state.playerPos.x, 0, state.playerPos.z);
+      if (state.camera) {
+        state.camera.position.set(
+          state.playerPos.x,
+          45, // Higher up
+          state.playerPos.z + 30 // Further back
+        );
+        state.camera.lookAt(state.playerPos.x, 0, state.playerPos.z);
+      }
 
       // Animate guards
       state.guards.forEach(guard => {
