@@ -885,7 +885,7 @@ export default function QuestRoom({ questId, questType }: QuestRoomProps) {
           </div>
         </div>
         <p className="text-center text-sm text-gray-300 mb-1">
-          {message}
+          {message}<span className="animate-pulse text-amber-500 font-bold ml-1">|</span>
         </p>
         <p className="text-center text-xs text-gray-400">
           WASD/Arrows: Move | Avoid red guards & spike traps | Follow the YELLOW BEAM to find letters!
