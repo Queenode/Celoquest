@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react"
 import { GameButton } from "./game-button"
+import { ScrollReader } from "./scroll-reader"
 import Link from "next/link"
 import { cn } from "@/lib/utils"
 
@@ -62,6 +63,8 @@ export function AncientScroll({ title, content, analogy, nextUrl }: AncientScrol
 
         {/* Content */}
         <div className="relative z-10 px-8 md:px-12 py-12 md:py-16">
+          <ScrollReader title={title} content={content} analogy={analogy} />
+
           {/* Title */}
           <h2 
             className="text-4xl md:text-5xl font-black text-center mb-8 text-[#58493b] tracking-wide"
