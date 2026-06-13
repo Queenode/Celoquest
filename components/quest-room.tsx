@@ -391,7 +391,7 @@ export default function QuestRoom({ questId, questType }: QuestRoomProps) {
     });
 
     // Letters (dynamic based on quest data - appear in difficult/dangerous locations near guards)
-    const letterData = questData.letters.map((letterConfig, index) => {
+    const letterData = questData.letters.map((letterConfig: any, index) => {
       // Create positions that scale with word length and avoid guard paths
       const totalLetters = questData.letters.length;
       const angle = (index / totalLetters) * 2 * Math.PI; // Distribute around a circle
@@ -405,7 +405,7 @@ export default function QuestRoom({ questId, questType }: QuestRoomProps) {
       };
     });
 
-    letterData.forEach((data, index) => {
+    letterData.forEach((data: any, index: number) => {
       const letterMesh = new THREE.Mesh(
         new THREE.SphereGeometry(1, 20, 20),
         new THREE.MeshStandardMaterial({ 
@@ -850,7 +850,7 @@ export default function QuestRoom({ questId, questType }: QuestRoomProps) {
         </h1>
         <div className="flex justify-between items-center mb-2 px-4">
           <div className="flex gap-2">
-            {targetWord.split('').map((letter, idx) => {
+            {targetWord.split('').map((letter: string, idx: number) => {
               // Find if this letter position has been found by checking questData.letters
               const letterConfig = questData.letters[idx];
               const isFound = letterConfig && foundLetters.includes(letterConfig.id);
