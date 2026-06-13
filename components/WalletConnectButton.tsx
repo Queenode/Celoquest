@@ -40,7 +40,7 @@ export function WalletConnectButton() {
     );
   }
 
-  if (isConnected && !needsNetworkSwitch) {
+  if (isConnected && !(chain?.id !== CELO_NETWORK.id)) {
     return (
       <div className="flex items-center gap-3 bg-stone-900/50 p-1 pr-1 border border-glow-amber/20 backdrop-blur-sm [clip-path:polygon(10px_0,100%_0,100%_calc(100%-10px),calc(100%-10px)_100%,0_100%,0_10px)]">
         <span className="text-xs md:text-sm font-bold text-glow-cyan font-[family-name:var(--font-cinzel)] tracking-wider pl-3">
@@ -53,7 +53,7 @@ export function WalletConnectButton() {
     );
   }
 
-  if (isConnected && needsNetworkSwitch) {
+  if (isConnected && (chain?.id !== CELO_NETWORK.id)) {
     return (
       <div className="flex items-center gap-2 bg-stone-900/50 p-1 border border-red-500/30 backdrop-blur-sm [clip-path:polygon(10px_0,100%_0,100%_calc(100%-10px),calc(100%-10px)_100%,0_100%,0_10px)]">
         <span className="text-xs md:text-sm text-red-400 font-[family-name:var(--font-cinzel)] font-bold animate-pulse pl-2">Wrong Realm</span>

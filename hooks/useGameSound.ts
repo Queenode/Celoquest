@@ -22,9 +22,10 @@ const SOUNDS: Record<string, SoundConfig> = {
   whoosh: { frequency: 200, duration: 0.3, gain: 0.15, type: 'sine' },
 }
 
+let globalSoundEnabled = true
+
 export function useGameSound() {
   const audioCtxRef = useRef<AudioContext | null>(null)
-  const enabledRef = useRef(true)
 
   const getCtx = useCallback(() => {
     if (!audioCtxRef.current) {
@@ -40,7 +41,7 @@ export function useGameSound() {
   }, [])
 
   const playSound = useCallback((type: SoundType) => {
-    if (!enabledRef.current) return
+    if (!globalSoundEnabled) return
     const ctx = getCtx()
     if (!ctx) return
 
@@ -80,11 +81,11 @@ export function useGameSound() {
   }, [getCtx])
 
   const toggle = useCallback(() => {
-    enabledRef.current = !enabledRef.current
-    return enabledRef.current
+    globalSoundEnabled = !globalSoundEnabled
+    return globalSoundEnabled
   }, [])
 
-  const isEnabled = () => enabledRef.current
+  const isEnabled = () => globalSoundEnabled
 
   return { playSound, toggle, isEnabled }
 }
