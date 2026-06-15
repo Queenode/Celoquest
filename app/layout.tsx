@@ -18,6 +18,13 @@ const cinzelDecorative = Cinzel_Decorative({
   display: "swap",
 })
 
+export const viewport = {
+  themeColor: '#1c1917',
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
+};
+
 export const metadata: Metadata = {
   title: "CeloQuest - Prosperity Through Knowledge",
   description: "Embark on a digital journey to master the Celo ecosystem and unlock prosperity.",
