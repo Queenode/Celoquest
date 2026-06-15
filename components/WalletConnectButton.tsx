@@ -18,11 +18,7 @@ export function WalletConnectButton() {
     
     // Debug: Log available connectors
     if (connectors.length > 0) {
-      console.log('Available connectors:', connectors.map(c => ({
-        name: c.name,
-        id: c.id,
-        uid: c.uid
-      })));
+      
     }
   }, [connectors]);
 
