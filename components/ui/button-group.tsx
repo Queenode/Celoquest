@@ -1,3 +1,7 @@
+/**
+ * @file button-group.tsx
+ * @description Core implementation module for CeloQuest.
+ */
 import { Slot } from '@radix-ui/react-slot'
 import { cva, type VariantProps } from 'class-variance-authority'
 
