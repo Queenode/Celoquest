@@ -1,3 +1,7 @@
+/**
+ * @file sonner.tsx
+ * @description Core implementation module for CeloQuest.
+ */
 'use client'
 
 import { useTheme } from 'next-themes'
