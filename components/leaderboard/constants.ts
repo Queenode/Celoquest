@@ -1,3 +1,4 @@
+// @ts-check
 import { PlayerStats } from "./types";
 
 export const LEADERBOARD_DATA: PlayerStats[] = [
