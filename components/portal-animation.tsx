@@ -1,3 +1,7 @@
+/**
+ * @file portal-animation.tsx
+ * @description Core implementation module for CeloQuest.
+ */
 "use client"
 
 export function PortalAnimation() {
