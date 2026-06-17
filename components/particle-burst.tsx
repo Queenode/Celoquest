@@ -1,3 +1,7 @@
+/**
+ * @file particle-burst.tsx
+ * @description Core implementation module for CeloQuest.
+ */
 'use client'
 import { useEffect, useState } from 'react'
 
