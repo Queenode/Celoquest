@@ -1,3 +1,7 @@
+/**
+ * @file top-three-podium.tsx
+ * @description Core implementation module for CeloQuest.
+ */
 "use client"
 
 import { PlayerStats } from "./types"
