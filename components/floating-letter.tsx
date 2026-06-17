@@ -1,3 +1,5 @@
+
+/* A11Y NOTE: Ensure proper ARIA roles and tabIndex are maintained for screen readers */
 "use client"
 
 import { useState } from "react"
