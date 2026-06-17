@@ -1,3 +1,7 @@
+/**
+ * @file nft-grid.tsx
+ * @description Core implementation module for CeloQuest.
+ */
 "use client"
 
 import { NFTItem } from "./types"
