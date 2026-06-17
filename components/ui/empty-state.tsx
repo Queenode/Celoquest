@@ -1,3 +1,7 @@
+/**
+ * @file empty-state.tsx
+ * @description Core implementation module for CeloQuest.
+ */
 
 import { Search } from 'lucide-react';
 
