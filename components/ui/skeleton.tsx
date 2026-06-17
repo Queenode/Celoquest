@@ -1,3 +1,7 @@
+/**
+ * @file skeleton.tsx
+ * @description Core implementation module for CeloQuest.
+ */
 import { cn } from "@/lib/utils"
 
 function Skeleton({
