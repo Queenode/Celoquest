@@ -1,3 +1,5 @@
+
+/* A11Y NOTE: Ensure proper ARIA roles and tabIndex are maintained for screen readers */
 export type Rarity = 'Common' | 'Rare' | 'Epic' | 'Legendary';
 export type Category = 'Weapon' | 'Armor' | 'Artifact' | 'Potion';
 
