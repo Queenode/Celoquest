@@ -1,3 +1,4 @@
+// @ts-check
 export * from "./types"
 export * from "./constants"
 export * from "./rarity-badge"
