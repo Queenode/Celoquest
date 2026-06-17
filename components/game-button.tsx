@@ -1,3 +1,4 @@
+// @ts-check
 "use client"
 import { type ButtonHTMLAttributes, forwardRef } from "react"
 import { cn } from "@/lib/utils"
