@@ -1,3 +1,7 @@
+/**
+ * @file coming-soon-overlay.tsx
+ * @description Core implementation module for CeloQuest.
+ */
 import { Lock } from "lucide-react"
 
 interface ComingSoonOverlayProps {
