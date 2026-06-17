@@ -1,3 +1,7 @@
+/**
+ * @file scroll-reader.tsx
+ * @description Core implementation module for CeloQuest.
+ */
 'use client'
 import { Play, Pause, Square, BookOpen } from 'lucide-react'
 import { useTextToSpeech } from '@/hooks/useTextToSpeech'
