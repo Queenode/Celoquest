@@ -1,3 +1,7 @@
+/**
+ * @file rarity-badge.tsx
+ * @description Core implementation module for CeloQuest.
+ */
 "use client"
 
 import { Rarity } from "./types"
