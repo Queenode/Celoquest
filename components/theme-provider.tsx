@@ -1,3 +1,7 @@
+/**
+ * @file theme-provider.tsx
+ * @description Core implementation module for CeloQuest.
+ */
 'use client'
 
 import * as React from 'react'
