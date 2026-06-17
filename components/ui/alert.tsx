@@ -1,3 +1,5 @@
+
+/* A11Y NOTE: Ensure proper ARIA roles and tabIndex are maintained for screen readers */
 import * as React from 'react'
 import { cva, type VariantProps } from 'class-variance-authority'
 
