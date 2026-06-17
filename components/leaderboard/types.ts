@@ -1,3 +1,7 @@
+/**
+ * @file types.ts
+ * @description Core implementation module for CeloQuest.
+ */
 export interface PlayerStats {
   id: string;
   rank: number;
