@@ -1,19 +1,5 @@
-/**
- * @file skeleton.tsx
- * @description Core implementation module for CeloQuest.
- */
-import { cn } from "@/lib/utils"
+import React from 'react';
 
-function Skeleton({
-  className,
-  ...props
-}: React.HTMLAttributes<HTMLDivElement>) {
-  return (
-    <div
-      className={cn("animate-pulse rounded-md bg-white/10", className)}
-      {...props}
-    />
-  )
-}
-
-export { Skeleton }
+export const Skeleton = ({ children, className }: { children?: React.ReactNode, className?: string }) => {
+  return <div className={className}>{children}</div>;
+};
