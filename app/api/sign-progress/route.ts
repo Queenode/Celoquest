@@ -2,10 +2,9 @@ import { NextResponse } from 'next/server';
 import { privateKeyToAccount } from 'viem/accounts';
 import { CONTRACT_ADDRESSES } from '@/constants/contracts';
 
-const MASTER_PRIVATE_KEY = process.env.PRIVATE_KEY;
-
 export async function POST(request: Request) {
   try {
+    const MASTER_PRIVATE_KEY = process.env.PRIVATE_KEY;
     if (!MASTER_PRIVATE_KEY) {
       return NextResponse.json({ error: 'Server configuration error' }, { status: 500 });
     }
