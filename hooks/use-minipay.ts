@@ -1,6 +1,6 @@
-declare global { interface Window { ethereum?: any; } }
-
 "use client";
+
+declare global { interface Window { ethereum?: any; } }
 
 import { useEffect, useState } from "react";
 
